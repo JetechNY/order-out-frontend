@@ -5,7 +5,7 @@ class MenuContainer extends React.Component{
 
 
     renderMenu = () => {
-        return this.props.itemsArray.map(menuObj => <MenuCard key={menuObj.id} menuObj={menuObj}/>)
+        return this.props.itemsArray.map(menuObj => <MenuCard key={menuObj.id} menuObj={menuObj}  addToCart={this.props.addToCart}/>)
     }
 
     render(){

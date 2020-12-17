@@ -4,28 +4,9 @@ import formatCurrency from "./util";
 
 class MenuCard extends React.Component {
 
-    state ={
-        cartItems: []
-    }
-
-    // addToCart = (product) => {
-    //     const cartItems = this.state.cartItems.slice();
-    //     let alreadyInCart = false;
-    //     cartItems.forEach((item) => {
-    //         if (item.id === product.id) {
-    //             item.count++;
-    //             alreadyInCart = true;
-    //         }
-    //     });
-    //     if (!alreadyInCart) {
-    //         cartItems.push({ ...product, count: 1 });
-    //     }
-    //     this.setState({ cartItems });
-    // };
-
     addToCart = (cartItem) => {
-        this.props.addCart(cartItem)
-        console.log("clicked", this.props.menuObj)
+        this.props.addToCart(cartItem)
+        console.log("add to cart pressed and sent", this.props.menuObj)
     }
 
     render() {

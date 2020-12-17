@@ -13,7 +13,7 @@ class RestaurantContainer extends React.Component{
     }
 
     renderRestaurant = () => {
-        return this.props.restArray.map(restObj => <RestaurantCard key={restObj.id} restObj={restObj}/>)
+        return this.props.restArray.map(restObj => <RestaurantCard key={restObj.id} restObj={restObj} />)
     }
 
     render(){
@@ -24,7 +24,7 @@ class RestaurantContainer extends React.Component{
                         render={({match})=>{
                             return(
                                 <div>
-                                    <RestaurantProfile rest={this.props.restArray.find(rest=>rest.id == match.params.id)}/>
+                                    <RestaurantProfile rest={this.props.restArray.find(rest=>rest.id == match.params.id)} addToCart={this.props.addToCart}/>
                                 </div>
                                 )
                             }}/>

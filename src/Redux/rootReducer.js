@@ -37,6 +37,7 @@ function cartReducer(state = defaultState.cartArray, action) {
             return state
     }
 }
+
 function userReducer(currentState=defaultState.user, action) {
     switch (action.type) {
         case 'USER_LOGIN':
