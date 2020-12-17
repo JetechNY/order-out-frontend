@@ -55,7 +55,6 @@ class App extends React.Component {
   }
 
   removeFromCart = (menuitem) => {
-// debugger
     let cartItem = this.state.oricart[0].cart_items.find(item => item.menu_item_id == menuitem.id )
     fetch(`http://localhost:3000/api/v1/cart_items/${cartItem.id}`, {
       method: 'DELETE'
