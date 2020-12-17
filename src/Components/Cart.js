@@ -12,7 +12,6 @@ createOrder = (e) => {
 };
 
 render() {
-
     const { cartItems } = this.props;
     return (
     <div>

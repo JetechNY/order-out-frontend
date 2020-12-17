@@ -4,10 +4,13 @@ import formatCurrency from "./util";
 
 class MenuCard extends React.Component {
 
-    addToCart = (cartItem) => {
-        this.props.addToCart(cartItem)
+    handleAdd = (itemId) => {
+        this.props.addToCart(itemId)
         console.log("add to cart pressed and sent", this.props.menuObj)
     }
+
+
+
 
     render() {
         return (
@@ -20,7 +23,7 @@ class MenuCard extends React.Component {
                     </a>
                     <div className="product-price">
                         <div> Price: {formatCurrency(this.props.menuObj.price)} </div>
-                        <button onClick={()=> this.addToCart(this.props.menuObj)} className="button primary" > Add to cart </button>
+                        <button onClick={()=> this.handleAdd(this.props.menuObj.id)} className="button primary" > Add to cart </button>
                     </div>
 
                 </ul>

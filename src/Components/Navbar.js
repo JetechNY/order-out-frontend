@@ -11,7 +11,6 @@ class NavBar extends React.Component {
                     <NavLink to="/search" className="navbar-link"> Search </NavLink>
                     <NavLink to="/my-account" className="navbar-link"> My Account </NavLink>
                     <NavLink to="/restaurants" className="navbar-link"> Restaurants </NavLink>
-                    <NavLink to="/menus" className="navbar-link"> Menus </NavLink>
                     <NavLink to="/carts" className="navbar-link"> Cart </NavLink>
                 </span>
             </div>

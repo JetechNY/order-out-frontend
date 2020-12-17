@@ -14,6 +14,7 @@ import { connect } from 'react-redux';
 class App extends React.Component {
 
   state = {
+      oricart: [],
       cartItems: []
   }
 
@@ -24,42 +25,55 @@ class App extends React.Component {
   fetchCart(){
       fetch('http://localhost:3000/api/v1/carts')
       .then(response => response.json())
-      .then(cartItems => {
-          this.setState({cartItems: cartItems[0].menu_items})
+      .then(cart => {
+        console.log("here", cart)
+          this.setState({
+            oricart: cart,
+            cartItems: cart[0].menu_items
+          })
       });
   }
 
-  createOrder = (order) => {
-    alert("Thank you for your order! Your food is on the way. ");
-  };
-
-  removeFromCart = (product) => {
-      const cartItems = this.state.cartItems.slice();
-      this.setState({
-        cartItems: cartItems.filter((x) => x.id !== product.id),
-      });
-  // fetch('http://localhost:3000/api/v1/carts'), {method:"DELETE"})
-  };
-
-  addToCart = (cartItem) => {
-    const newCart = [...this.state.cartItems];
-    newCart.push({ ...cartItem});
-    console.log("newcart",newCart)
-    this.setState({cartItems: newCart})
-    // debugger
-    // fetch('http://localhost:3000/api/v1/carts/1',{
-    //   method: "PATCH",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     "Accept": "application/json"
-    //   },
-    //   body: JSON.stringify(newCart)
-    // })
-    // .then(r => r.json())
-    // .then(data => console.log("new data", data))
+  addToCart = (menuId) => {
+    fetch('http://localhost:3000/api/v1/cart_items',{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        menu_item_id: menuId,
+        cart_id: 1
+      })
+    })
+    .then(r => r.json())
+    .then(data => this.setState(prevState => {
+      return ({
+          cartItems: [...prevState.cartItems, data]
+      })
+  }))
   }
 
+  removeFromCart = (menuitem) => {
+// debugger
+    let cartItem = this.state.oricart[0].cart_items.find(item => item.menu_item_id == menuitem.id )
+    fetch(`http://localhost:3000/api/v1/cart_items/${cartItem.id}`, {
+      method: 'DELETE'
+    })
+    .then(resp => resp.json())
+    .then(data => {
+        console.log(data, "success!")
+        let newCartItems = [...this.state.cartItems]
+        const theNewCartIndex = newCartItems.indexOf(menuitem)
+        newCartItems.splice(theNewCartIndex, 1)
+        this.setState({cartItems: newCartItems})
+    })
+    .catch(err => console.log(err))
+}
 
+createOrder = (order) => {
+  alert("Thank you for your order! Your food is on the way. ");
+};
 
     render(){
     return (
