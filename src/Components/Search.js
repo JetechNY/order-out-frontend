@@ -7,9 +7,7 @@ class Search extends React.Component {
     render() {
         return(
             <div>
-                <Link to={`/search`}>
-                    <p>Restaurant SEARCH HERE form</p>
-                </Link>
+                <p>Restaurant SEARCH HERE form</p>
             </div>
         )
     }

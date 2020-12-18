@@ -20,6 +20,8 @@ class MenuCard extends React.Component {
                     </a>
                     <div className="product-price">
                         <div> Price: {formatCurrency(this.props.menuObj.price)} </div>
+                    </div>
+                    <div className="button">
                         <button onClick={()=> this.handleAdd(this.props.menuObj.id)} className="button primary" > Add to cart </button>
                     </div>
 
