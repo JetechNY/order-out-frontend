@@ -4,9 +4,14 @@ import { connect } from 'react-redux';
 import {getRestaurantFromApi} from '../Redux/actions'
 import {Route, Switch} from 'react-router-dom'
 import RestaurantProfile from '../Components/RestaurantProfile'
-
+import Filter from '../Components/Filter';
 
 class RestaurantContainer extends React.Component{
+
+    // state = {
+    //     filter: "",
+    //     sort: ""
+    // }
 
     componentDidMount(){
         this.props.getRestaurantFromApi()
@@ -16,9 +21,29 @@ class RestaurantContainer extends React.Component{
         return this.props.restArray.map(restObj => <RestaurantCard key={restObj.id} restObj={restObj} />)
     }
 
+  // filterRestaurants = (event) => {
+
+  //   if(event.target.value === ""){
+  //     this.setState({price: event.target.value, restaurant:data.restaurants})
+  //   } else{
+  //       this.setState({
+  //         price: event.target.value,
+  //         restaurants: data.restaurants.filter(restaurant => restaurants.price.indexOf(event.target.value)>=0)
+  //       })
+  //     }
+  //   }
+
+
     render(){
         return(
                 <Switch>
+                    {/* <Filter
+                        count={this.state.products.length}
+                        size={this.state.size}
+                        sort={this.state.sort}
+                        filterProducts={this.filterProducts}
+                        sortProducts={this.sortProducts}
+                    ></Filter> */}
                     <Route
                         path='/restaurants/:id'
                         render={({match})=>{
@@ -38,6 +63,7 @@ class RestaurantContainer extends React.Component{
                                 </div>
                             )
                         }}/>
+
                 </Switch>
             )
     }

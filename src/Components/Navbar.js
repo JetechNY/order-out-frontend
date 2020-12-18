@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Search from '../Components/Search'
 
 class NavBar extends React.Component {
 
@@ -11,7 +12,7 @@ class NavBar extends React.Component {
                     <NavLink to="/search" className="navbar-link"> Search </NavLink>
                     <NavLink to="/my-account" className="navbar-link"> My Account </NavLink>
                     <NavLink to="/restaurants" className="navbar-link"> Restaurants </NavLink>
-                    <NavLink to="/carts" className="navbar-link"> Cart </NavLink>
+                    <NavLink to="/carthistory" className="navbar-link"> Cart History </NavLink>
                 </span>
             </div>
         )

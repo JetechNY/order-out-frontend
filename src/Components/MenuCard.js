@@ -9,9 +9,6 @@ class MenuCard extends React.Component {
         console.log("add to cart pressed and sent", this.props.menuObj)
     }
 
-
-
-
     render() {
         return (
             <div className="card" key={this.props.menuObj.id} >

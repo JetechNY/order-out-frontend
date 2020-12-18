@@ -6,14 +6,17 @@ import {Link, Route, Switch, Redirect} from 'react-router-dom'
 
 class Cart extends React.Component {
 
-createOrder = (e) => {
+    handleCheckout = (e) => {
     e.preventDefault();
-    this.props.createOrder(e);
+
+    this.props.handleCheckout(e);
 };
 
 render() {
     const { cartItems } = this.props;
+    console.log("props", this.props)
     return (
+
     <div>
         {cartItems.length === 0 ? (
         <div className="cart cart-header">Cart is empty</div>
@@ -33,8 +36,10 @@ render() {
                     <div>
                         <div>{item.name}</div>
                         <div className="right">
-                        {formatCurrency(item.price)}  x {item.count}{" "}
+                        {formatCurrency(item.price)}
+                        {/* x {item.count}{" "} */}
                         <button
+                        //this just shows the item iteself times how many (how many currently not showing)
                             className="button"
                             onClick={() => this.props.removeFromCart(item)}
                         >
@@ -53,19 +58,20 @@ render() {
                 <div>
                     Total:{" "}
                     {formatCurrency(
-                    cartItems.reduce((a, c) => a + c.price * c.count, 0)
+                    cartItems.reduce((agg, c) => agg + c.price, 0)
+                    //this is the total cost at the bottom of cart.
                     )}
                 </div>
                 <div className="note">
                     <div>
                         <form onSubmit={this.submitHandler}>
-                            <input type="text" name="note" placeholder="Note" value={this.props.note} onChange={this.changeHandler}/>
+                            <input type="text" name="note" placeholder="Note" value={this.props.cartItems.note} onChange={this.changeHandler}/>
                             <input type="submit" value="Add Note"/>
                         </form>
                     </div>
                 </div>
                     <div>
-                        <form onSubmit={this.createOrder}>
+                        <form onSubmit={this.handleCheckout}>
                             {/* <Link to={`/checkout`}> */}
                             <button className="button primary" type="submit">
                                 Checkout
