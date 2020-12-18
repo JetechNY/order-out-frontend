@@ -13,22 +13,22 @@ class Cart extends React.Component {
 };
 
 render() {
-    const { cartItems } = this.props;
+    const { menuItems } = this.props;
     console.log("props", this.props)
     return (
 
     <div>
-        {cartItems.length === 0 ? (
+        {menuItems.length === 0 ? (
         <div className="cart cart-header">Cart is empty</div>
         ) : (
         <div className="cart cart-header">
-            You have {cartItems.length} in the cart{" "}
+            You have {menuItems.length} in the cart{" "}
         </div>
         )}
         <div>
             <div className="cart">
                 <ul className="cart-items">
-                {cartItems.map((item) => (
+                {menuItems.map((item) => (
                     <li key={item.id}>
                     <div>
                         <img src={item.img} alt={item.name}></img>
@@ -51,21 +51,21 @@ render() {
                 ))}
                 </ul>
             </div>
-        {cartItems.length !== 0 && (
+        {menuItems.length !== 0 && (
             <div>
             <div className="cart">
                 <div className="total">
                 <div>
                     Total:{" "}
                     {formatCurrency(
-                    cartItems.reduce((agg, c) => agg + c.price, 0)
+                    menuItems.reduce((agg, c) => agg + c.price, 0)
                     //this is the total cost at the bottom of cart.
                     )}
                 </div>
                 <div className="note">
                     <div>
                         <form onSubmit={this.submitHandler}>
-                            <input type="text" name="note" placeholder="Note" value={this.props.cartItems.note} onChange={this.changeHandler}/>
+                            <input type="text" name="note" placeholder="Note" value={"here"} onChange={this.changeHandler}/>
                             <input type="submit" value="Add Note"/>
                         </form>
                     </div>

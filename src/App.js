@@ -14,15 +14,11 @@ import {
   Redirect
 } from "react-router-dom";
 import { connect } from 'react-redux';
-
+import produce from "immer";
 
 class App extends React.Component {
 
   state = {
-      newActiveCart: {
-        menu_items: [],
-        cart_items: []
-      },
       activeCart: []
   }
 
@@ -38,7 +34,7 @@ class App extends React.Component {
   }
 
   addToCart = (menuId) => {
-    fetch('http://localhost:3000/api/v1/cart_items',{
+    fetch('http://localhost:3000/api/v1/cart_items', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -49,44 +45,29 @@ class App extends React.Component {
         cart_id: this.state.activeCart.id
       })
     })
-    .then(r => r.json())
-    // .then(newItemInCart =>
-    //   let copyOfNewItemInOrderCart = [...this.state.activeCart.cart_items, newItemInCart]
-    //   let copyOfCart = {
-    //     ...this.state.activeCart,
-    //   activeCart.cart_items: copyOfNewItemInOrderCart
-    //   }
-    //   this.setState({
-    //     activeCart: copyOfCart
-    //   })
-
-    //   this.setState(prevState => {
-    //   return({
-    //     newActiveCart: [...prevState.activeCart.menu_items, data]
-    //   })
-    // }
-    // {
-    // let newCartItems = [...this.state.activeCart.cart_items]
-    // const theNewCartIndex = newCartItems.indexOf(menuId)
-    // newCartItems.splice(theNewCartIndex, 1)
-    // this.setState({activeCart: newCartItems})
-    // }
-    // )
+      .then(r => r.json())
+      .then(data => {
+        // debugger
+        this.setState(produce(this.state, draft => {
+          draft.activeCart.menu_items = [...draft.activeCart.menu_items, data.menu_item]
+          draft.activeCart.cart_items = [...draft.activeCart.cart_items, data.cart_item]
+        }))
+      })
   }
 
   removeFromCart = (menuitem) => {
     let cartItem = this.state.activeCart.cart_items.find(item => item.menu_item_id == menuitem.id )
-
+    let cartIndex = this.state.activeCart.cart_items.indexOf(cartItem)
+    let menuIndex = this.state.activeCart.menu_items.indexOf(menuitem)
     fetch(`http://localhost:3000/api/v1/cart_items/${cartItem.id}`, {
       method: 'DELETE'
     })
     .then(resp => resp.json())
     .then(data => {
-        console.log(data, "success!")
-        // let newCartItems = [...this.state.activeCart.cart_items]
-        // const theNewCartIndex = newCartItems.indexOf(menuitem)
-        // newCartItems.splice(theNewCartIndex, 1)
-        // this.setState({activeCart: newCartItems})
+      this.setState(produce(this.state, draft => {
+        draft.activeCart.cart_items.splice(cartIndex, 1)
+        draft.activeCart.menu_items.splice(menuIndex, 1)
+      }))
     })
     .catch(err => console.log(err))
 }
@@ -134,8 +115,7 @@ class App extends React.Component {
 
 
     render(){
-      console.log("orig",this.state.activeCart)
-      console.log("new", this.state.newActiveCart)
+      console.log("activecart",this.state.activeCart)
       return (
         <>
         { this.state.activeCart.length === 0 ? <h2>loading</h2> :
@@ -179,7 +159,7 @@ class App extends React.Component {
                 </div>
                 <div className="sidebar">
                   <Cart
-                    cartItems={this.state.activeCart.menu_items}
+                    menuItems={this.state.activeCart.menu_items}
                     removeFromCart={this.removeFromCart}
                     handleCheckout={this.handleCheckout}
                   />
