@@ -19,7 +19,7 @@ render() {
 
     <div>
         {menuItems.length === 0 ? (
-        <div className="cart cart-header">Cart is empty</div>
+        <div className="cart cart-header">Your cart is empty</div>
         ) : (
         <div className="cart cart-header">
             You have {menuItems.length} in the cart{" "}
@@ -40,7 +40,7 @@ render() {
                         {/* x {item.count}{" "} */}
                         <button
                         //this just shows the item iteself times how many (how many currently not showing)
-                            className="button"
+                            className="button primary"
                             onClick={() => this.props.removeFromCart(item)}
                         >
                             Remove Item
@@ -65,8 +65,10 @@ render() {
                 <div className="note">
                     <div>
                         <form onSubmit={this.submitHandler}>
-                            <input type="text" name="note" placeholder="Note" value={"here"} onChange={this.changeHandler}/>
-                            <input type="submit" value="Add Note"/>
+                            <input type="text" name="note" placeholder="Add Order Note"
+                            // value={""}
+                            onChange={this.changeHandler}/>
+                            <input className="button primary" type="submit" value="Add Note"/>
                         </form>
                     </div>
                 </div>

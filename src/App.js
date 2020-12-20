@@ -166,7 +166,7 @@ class App extends React.Component {
                 </div>
               </div>
             </main>
-            <footer> By SunJet Liu </footer>
+            <footer> Order Out By SunJet Liu </footer>
           </div>
         }
         </>

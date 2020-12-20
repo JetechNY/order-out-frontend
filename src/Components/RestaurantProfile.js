@@ -36,7 +36,9 @@ class RestaurantProfile extends React.Component {
                         </div>
                     </div>
                 </div>
+                <div>
                     <MenuContainer itemsArray={this.props.rest.menu_items}  addToCart={this.props.addToCart}/>
+                </div>
             </div>
                 </>
             :
