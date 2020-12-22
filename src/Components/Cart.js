@@ -6,11 +6,40 @@ import { PayPalButton } from 'react-paypal-button-v2'
 
 class Cart extends React.Component {
 
+
+
     handleCheckout = (e) => {
     e.preventDefault();
 
     this.props.handleCheckout(e);
 };
+
+    renderCart = () => {
+        const { menuItems } = this.props;
+
+        return menuItems.map((item) => (
+            <div key={item.id}>
+            <div>
+                <img src={item.img} alt={item.name}></img>
+            </div>
+            <div>
+                <div>{item.name}</div>
+                <div className="right">
+                {formatCurrency(item.price)}
+                {/* x {item.count}{" "} */}
+                <button
+                //this just shows the item iteself times how many (how many currently not showing)
+                    className="button primary"
+                    onClick={() => this.props.removeFromCart(item)}
+                >
+                    Remove Item
+                </button>
+                </div>
+            </div>
+            </div>
+        ))
+    }
+
 
 render() {
     const { menuItems } = this.props;
@@ -28,27 +57,7 @@ render() {
         <div>
             <div className="cart">
                 <ul className="cart-items">
-                {menuItems.map((item) => (
-                    <li key={item.id}>
-                    <div>
-                        <img src={item.img} alt={item.name}></img>
-                    </div>
-                    <div>
-                        <div>{item.name}</div>
-                        <div className="right">
-                        {formatCurrency(item.price)}
-                        {/* x {item.count}{" "} */}
-                        <button
-                        //this just shows the item iteself times how many (how many currently not showing)
-                            className="button primary"
-                            onClick={() => this.props.removeFromCart(item)}
-                        >
-                            Remove Item
-                        </button>
-                        </div>
-                    </div>
-                    </li>
-                ))}
+                    {this.renderCart()}
                 </ul>
             </div>
         {menuItems.length !== 0 && (
@@ -83,6 +92,7 @@ render() {
                     </div>
                 </div>
             </div>
+                    <PayPalButton/>
         </div>
         )}
         </div>

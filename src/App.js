@@ -15,7 +15,6 @@ import {
 } from "react-router-dom";
 import { connect } from 'react-redux';
 import produce from "immer";
-import { PayPalButton } from 'react-paypal-button-v2'
 
 
 class App extends React.Component {
@@ -35,7 +34,18 @@ class App extends React.Component {
       });
   }
 
-  addToCart = (menuId) => {
+  addToCart = (menuObj) => {
+    // const cartItems = this.state.activeCart.menu_items.slice();
+    // let alreadyInCart = false;
+    // cartItems.forEach((item) => {
+    //   if (item.id === menuObj.id) {
+    //     item.count++;
+    //     alreadyInCart = true;
+    //   }
+    // });
+    // if (!alreadyInCart) {
+    //   cartItems.push({ ...menuObj.id, count: 1 });
+    // }
     fetch('http://localhost:3000/api/v1/cart_items', {
       method: "POST",
       headers: {
@@ -43,7 +53,7 @@ class App extends React.Component {
         "Accept": "application/json"
       },
       body: JSON.stringify({
-        menu_item_id: menuId,
+        menu_item_id: menuObj.id,
         cart_id: this.state.activeCart.id
       })
     })
@@ -166,7 +176,6 @@ class App extends React.Component {
                     removeFromCart={this.removeFromCart}
                     handleCheckout={this.handleCheckout}
                   />
-                  <PayPalButton/>
                 </div>
               </div>
             </main>

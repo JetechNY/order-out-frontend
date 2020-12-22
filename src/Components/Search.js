@@ -1,16 +1,19 @@
-import React from "react";
-import {Link, Route, Switch, Redirect} from 'react-router-dom'
+import React from 'react'
 
+const CardSearch = props => {
 
-class Search extends React.Component {
+  const localHandleCardSearchChange = (e) => {
+    props.handleCardSearchChange(e.target.value)
+  }
 
-    render() {
-        return(
-            <div>
-                <p>Restaurant SEARCH HERE form</p>
-            </div>
-        )
-    }
+    return (
+      <div className="ui search">
+        <div className="ui icon input">
+          <input value={props.searchTerm} onChange={localHandleCardSearchChange} className="prompt" placeholder="Search Restaurants"/>
+          <i className="search icon" />
+        </div>
+      </div>
+    )
 }
 
-export default Search;
+export default CardSearch
