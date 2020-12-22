@@ -128,7 +128,7 @@ class App extends React.Component {
 
 
     render(){
-      console.log("activecart",this.state.activeCart)
+      // console.log("activecart",this.state.activeCart)
       return (
         <>
         { this.state.activeCart.length === 0 ? <h2>loading</h2> :

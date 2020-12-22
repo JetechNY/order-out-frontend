@@ -1,5 +1,6 @@
 import React from "react";
 import formatCurrency from "./util";
+import Modal from 'react-modal';
 
 class MenuCard extends React.Component {
 

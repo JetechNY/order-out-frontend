@@ -13,7 +13,7 @@ class RestaurantProfile extends React.Component {
                     <div class="image">
                         <img alt={this.props.rest.name} src={this.props.rest.image_url}/>
                     </div>
-                    <div class="content">
+                    <div class="card-content">
                         <div class="header">
                             {this.props.rest.name}
                         </div>
@@ -28,10 +28,10 @@ class RestaurantProfile extends React.Component {
                         </div>
                     </div>
                     <div class="extra content">
-                        <div>
+                        <div class="rating">
                         Rating: {this.props.rest.rating}/100
                         </div>
-                        <div>
+                        <div class="photos">
                         Photos: {this.props.rest.photos}
                         </div>
                     </div>

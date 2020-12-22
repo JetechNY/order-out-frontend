@@ -5,6 +5,7 @@ import {getRestaurantFromApi} from '../Redux/actions'
 import {Route, Switch} from 'react-router-dom'
 import RestaurantProfile from '../Components/RestaurantProfile'
 import Filter from '../Components/Filter';
+import Fade from 'react-reveal/Fade';
 
 class RestaurantContainer extends React.Component{
 
@@ -36,6 +37,7 @@ class RestaurantContainer extends React.Component{
 
     render(){
         return(
+            <Fade>
                 <Switch>
                     {/* <Filter
                         count={this.state.products.length}
@@ -57,18 +59,19 @@ class RestaurantContainer extends React.Component{
                         path='/restaurants'
                         render={()=>{
                             return(
-                                <div className="index">
                                 <div>
                                     <h3>Restaurants near you</h3>
-                                </div>
-                                <div>
-                                    {this.renderRestaurant()}
-                                </div>
+                                    <div>
+                                        <div className="index">
+                                        {this.renderRestaurant()}
+                                        </div>
+                                    </div>
                                 </div>
                             )
                         }}/>
 
                 </Switch>
+            </Fade>
             )
     }
 }
