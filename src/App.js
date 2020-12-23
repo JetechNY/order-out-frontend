@@ -2,7 +2,7 @@ import React from 'react';
 import NavBar from './Components/Navbar';
 import Account from './Components/Account';
 import Home from './Components/Home';
-import Filter from './Components/Filter';
+import History from './Components/History';
 import RestaurantContainer from './Containers/RestaurantContainer';
 import Cart from './Components/Cart';
 import {
@@ -33,10 +33,6 @@ class App extends React.Component {
           activeCart: activeCart[0]
         })
       });
-
-
-
-
   }
 
   addToCart = (menuObj) => {
@@ -142,9 +138,6 @@ class App extends React.Component {
             <main>
               <div className="content">
                 <div className="main">
-                  <RestaurantContainer
-                    addToCart={this.addToCart}
-                  />
                   <Route
                       path='/' exact
                       render={()=>{
@@ -160,6 +153,26 @@ class App extends React.Component {
                         return(
                           <div className="index">
                           <Account/>
+                          </div>
+                        )
+                      }}/>
+                  <Route
+                      path='/restaurants'
+                      render={()=>{
+                        return(
+                          <div className='index'>
+                            <RestaurantContainer
+                              addToCart={this.addToCart}
+                            />
+                          </div>
+                        )
+                      }}/>
+                  <Route
+                      path='/carthistory'
+                      render={()=>{
+                        return(
+                          <div className="index">
+                          <History/>
                           </div>
                         )
                   }}/>
