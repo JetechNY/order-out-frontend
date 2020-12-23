@@ -158,6 +158,12 @@ img:hover {
   justify-content: space-between;
   align-items: center;
 }
+
+.menu-items a{
+
+
+}
+
 .product-price div,
 .product-price button {
   text-align: center;
@@ -168,7 +174,7 @@ img:hover {
 }
 
 .button {
-  padding: 1rem;
+  padding: .5rem;
 }
 
 .button.primary:hover {

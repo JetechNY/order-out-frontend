@@ -1,6 +1,5 @@
 import React from 'react';
 import NavBar from './Components/Navbar';
-import Search from './Components/Search';
 import Account from './Components/Account';
 import Home from './Components/Home';
 import Filter from './Components/Filter';
@@ -20,7 +19,9 @@ import produce from "immer";
 class App extends React.Component {
 
   state = {
-      activeCart: []
+      activeCart: [],
+      token: "",
+      username: ""
   }
 
   componentDidMount() {
@@ -32,6 +33,10 @@ class App extends React.Component {
           activeCart: activeCart[0]
         })
       });
+
+
+
+
   }
 
   addToCart = (menuObj) => {
@@ -125,8 +130,6 @@ class App extends React.Component {
         })
       }
 
-
-
     render(){
       // console.log("activecart",this.state.activeCart)
       return (
@@ -151,15 +154,6 @@ class App extends React.Component {
                           </div>
                         )
                       }}/>
-                  <Route
-                      path='/search'
-                      render={()=>{
-                        return(
-                          <div className="index">
-                          <Search/>
-                          </div>
-                        )
-                  }}/>
                   <Route
                       path='/my-account'
                       render={()=>{

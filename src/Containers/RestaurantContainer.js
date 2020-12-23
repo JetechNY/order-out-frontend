@@ -6,13 +6,13 @@ import {Route, Switch} from 'react-router-dom'
 import RestaurantProfile from '../Components/RestaurantProfile'
 import Filter from '../Components/Filter';
 import Fade from 'react-reveal/Fade';
+import Search from '../Components/Search';
 
 class RestaurantContainer extends React.Component{
 
-    // state = {
-    //     filter: "",
-    //     sort: ""
-    // }
+    state = {
+        searchTerm: ''
+    }
 
     componentDidMount(){
         this.props.getRestaurantFromApi()
@@ -34,18 +34,28 @@ class RestaurantContainer extends React.Component{
   //     }
   //   }
 
+    renderCards = () => {
+        return this.filterRestaurantsFromSearch().map(card=> <RestaurantContainer key={card.id} card={card} />)
+    }
+
+    handleSearchChange = (searchTerm) => {
+        this.setState({searchTerm: searchTerm})
+    }
+
+    filterRestaurantsFromSearch = () => {
+    return this.state.restaurants.filter(card => card.term.toLowerCase().includes(this.state.searchTerm.toLowerCase()) || card.className.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+    }
+
+    // this.state.cards ? this.renderCards() : <i class="sync icon"></i>}
+
 
     render(){
         return(
             <Fade>
+                    <div className="search">
+                        <Search searchTerm={this.state.searchTerm} handleSearchChange={this.handleSearchChange} />
+                    </div>
                 <Switch>
-                    {/* <Filter
-                        count={this.state.products.length}
-                        size={this.state.size}
-                        sort={this.state.sort}
-                        filterProducts={this.filterProducts}
-                        sortProducts={this.sortProducts}
-                    ></Filter> */}
                     <Route
                         path='/restaurants/:id'
                         render={({match})=>{
@@ -75,6 +85,14 @@ class RestaurantContainer extends React.Component{
             )
     }
 }
+
+    {/* <Filter
+                        count={this.state.products.length}
+                        size={this.state.size}
+                        sort={this.state.sort}
+                        filterProducts={this.filterProducts}
+                        sortProducts={this.sortProducts}
+                    ></Filter> */}
 
 const msp = (state) => {
     return {
