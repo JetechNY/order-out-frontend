@@ -21,7 +21,8 @@ class App extends React.Component {
   state = {
       activeCart: [],
       token: "",
-      username: ""
+      username: "",
+      past_orders: []
   }
 
   componentDidMount() {
@@ -29,8 +30,10 @@ class App extends React.Component {
       .then(response => response.json())
       .then(data => {
         let activeCart = data.carts.filter(cart => cart.checkout === false)
+        let past_orders = data.carts.filter(cart => cart.checkout === true)
         this.setState({
-          activeCart: activeCart[0]
+          activeCart: activeCart[0],
+          past_orders: past_orders
         })
       });
   }
@@ -127,7 +130,7 @@ class App extends React.Component {
       }
 
     render(){
-      // console.log("activecart",this.state.activeCart)
+      console.log("historycart",this.state.past_orders)
       return (
         <>
         { this.state.activeCart.length === 0 ? <h2>loading</h2> :
@@ -172,7 +175,7 @@ class App extends React.Component {
                       render={()=>{
                         return(
                           <div className="index">
-                          <History/>
+                          <History pastOrders={this.state.past_orders}/>
                           </div>
                         )
                   }}/>
