@@ -120,17 +120,19 @@ class App extends React.Component {
         return Promise.all([resp1.json(), resp2.json()])
       })
       .then(([data1, data2]) => {
-        console.log(data1, data2)
+        console.log("checkout",data1, data2)
         this.setState({
           activeCart: data1
         })
+        this.setState(prevState => ({
+          past_orders: [...prevState.past_orders, data2]
+        }))
         this.props.history.push("/")
-
         })
       }
 
     render(){
-      console.log("historycart",this.state.past_orders)
+      // console.log("historycart",this.state.past_orders)
       return (
         <>
         { this.state.activeCart.length === 0 ? <h2>loading</h2> :
