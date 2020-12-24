@@ -8,30 +8,30 @@ class RestaurantProfile extends React.Component {
         return (
             this.props.rest ?
                 <>
-            <div class="ui link cards" key={this.props.rest.id}>
-                <div class="card">
-                    <div class="image">
+            <div className="ui link cards" key={this.props.rest.id}>
+                <div className="card">
+                    <div className="image">
                         <img alt={this.props.rest.name} src={this.props.rest.image_url}/>
                     </div>
-                    <div class="card-content">
-                        <div class="header">
+                    <div className="card-content">
+                        <div className="header">
                             {this.props.rest.name}
                         </div>
-                        <div class="description">
+                        <div className="description">
                             About: {this.props.rest.description}
                         </div>
-                        <div class="address">
+                        <div className="address">
                             Address: {this.props.rest.location}
                         </div>
-                        <div class="phone">
+                        <div className="phone">
                             Phone: {this.props.rest.display_phone}
                         </div>
                     </div>
-                    <div class="extra content">
-                        <div class="rating">
+                    <div className="extra content">
+                        <div className="rating">
                         Rating: {this.props.rest.rating}/100
                         </div>
-                        <div class="photos">
+                        <div className="photos">
                         Photos: {this.props.rest.photos}
                         </div>
                     </div>

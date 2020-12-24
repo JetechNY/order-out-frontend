@@ -5,10 +5,10 @@ import formatCurrency from "./util";
 export default class History extends Component {
 
     renderItems = (menu_items) => {
-        console.log("menuitems", menu_items)
+        // console.log("menuitems", menu_items)
         return(
                 menu_items.map((item,i) => {
-                    console.log("item",item)
+                    // console.log("item",item)
                     return(
                         <div className="mcard" key={i}>
                         <ul className='menu-items'>
