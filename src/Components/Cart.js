@@ -47,12 +47,9 @@ class Cart extends React.Component {
 
 render() {
     const { menuItems } = this.props;
-    console.log("props", this.props)
+    // console.log("props", this.props)
     return (
-
-
     <div>
-
         {menuItems.length === 0 ? (
             <div className="cart cart-header">Your cart is empty</div>
         ) : (
@@ -60,7 +57,6 @@ render() {
             You have {menuItems.length} in the cart{" "}
         </div>
         )}
-
         <div>
             <div className="cart">
                 <ul className="cart-items">

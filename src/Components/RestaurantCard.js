@@ -1,8 +1,8 @@
 import React from "react";
-import {Link, Route, Switch, Redirect} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import formatCurrency from "./util";
 import Fade from 'react-reveal/Fade'
-import Modal from 'react-modal';
+
 
 class RestaurantCard extends React.Component {
 

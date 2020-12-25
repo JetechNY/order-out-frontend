@@ -10,7 +10,7 @@ const defaultState = {
 function restaurantReducer(state = defaultState.restArray, action) {
     switch (action.type) {
         case 'FETCH_RESTAURANTS':
-            console.log("inside of API reducer", action)
+            // console.log("inside of API reducer", action)
             return action.payload
         default:
             return state
@@ -20,7 +20,7 @@ function restaurantReducer(state = defaultState.restArray, action) {
 function menuReducer(state = defaultState.menuArray, action) {
     switch (action.type) {
         case 'FETCH_MENUS':
-            console.log("inside of API reducer", action)
+            // console.log("inside of API reducer", action)
             return action.payload
         default:
             return state
@@ -31,7 +31,7 @@ function menuReducer(state = defaultState.menuArray, action) {
 function cartReducer(state = defaultState.cartArray, action) {
     switch (action.type) {
         case 'FETCH_CARTS':
-            console.log("inside of API reducer", action)
+            // console.log("inside of API reducer", action)
             return action.payload
         default:
             return state

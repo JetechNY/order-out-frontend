@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import {getRestaurantFromApi} from '../Redux/actions'
 import {Route, Switch} from 'react-router-dom'
 import RestaurantProfile from '../Components/RestaurantProfile'
-import Filter from '../Components/Filter';
 import Fade from 'react-reveal/Fade';
 import Search from '../Components/Search';
 
@@ -22,18 +21,6 @@ class RestaurantContainer extends React.Component{
         return this.props.restArray.map(restObj => <RestaurantCard key={restObj.id} restObj={restObj} />)
     }
 
-  // filterRestaurants = (event) => {
-
-  //   if(event.target.value === ""){
-  //     this.setState({price: event.target.value, restaurant:data.restaurants})
-  //   } else{
-  //       this.setState({
-  //         price: event.target.value,
-  //         restaurants: data.restaurants.filter(restaurant => restaurants.price.indexOf(event.target.value)>=0)
-  //       })
-  //     }
-  //   }
-
     renderCards = () => {
         return this.filterRestaurantsFromSearch().map(card=> <RestaurantContainer key={card.id} card={card} />)
     }
@@ -45,9 +32,6 @@ class RestaurantContainer extends React.Component{
     filterRestaurantsFromSearch = () => {
     return this.state.restaurants.filter(card => card.term.toLowerCase().includes(this.state.searchTerm.toLowerCase()) || card.className.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
     }
-
-    // this.state.cards ? this.renderCards() : <i class="sync icon"></i>}
-
 
     render(){
         return(
@@ -85,14 +69,6 @@ class RestaurantContainer extends React.Component{
             )
     }
 }
-
-    {/* <Filter
-                        count={this.state.products.length}
-                        size={this.state.size}
-                        sort={this.state.sort}
-                        filterProducts={this.filterProducts}
-                        sortProducts={this.sortProducts}
-                    ></Filter> */}
 
 const msp = (state) => {
     return {
