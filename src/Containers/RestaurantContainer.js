@@ -36,9 +36,9 @@ class RestaurantContainer extends React.Component{
     render(){
         return(
             <Fade>
-                    <div className="search">
-                        <Search searchTerm={this.state.searchTerm} handleSearchChange={this.handleSearchChange} />
-                    </div>
+                <div className="search">
+                    <Search searchTerm={this.state.searchTerm} handleSearchChange={this.handleSearchChange} />
+                </div>
                 <Switch>
                     <Route
                         path='/restaurants/:id'
