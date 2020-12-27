@@ -54,7 +54,7 @@ class RestaurantContainer extends React.Component{
                         render={()=>{
                             return(
                                 <div>
-                                    <h3>Restaurants near you</h3>
+                                    <h3>Here are the restaurants near you!</h3>
                                     <div>
                                         <div className="index">
                                         {this.renderRestaurant()}
