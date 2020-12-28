@@ -15,7 +15,7 @@ class RestaurantProfile extends React.Component {
                     </div>
                     <div className="card-content">
                         <div className="header">
-                            {this.props.rest.name}
+                            <strong style={{fontSize: 20}}>{this.props.rest.name}</strong>
                         </div>
                         <div className="description">
                             About: {this.props.rest.description}

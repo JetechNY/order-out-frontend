@@ -15,7 +15,7 @@ class MenuCard extends React.Component {
                 <ul className='menu-items'>
                     <a>
                         <img alt={this.props.menuObj.name} src={this.props.menuObj.img} />
-                        <p> {this.props.menuObj.name}</p>
+                        <p> <strong style={{fontSize: 20}}> {this.props.menuObj.name} </strong> </p>
                         <p> {this.props.menuObj.description}</p>
                     </a>
                     <div className="product-price">

@@ -93,6 +93,7 @@ a:hover {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  transition: width 2s;
 
 }
 
@@ -144,6 +145,8 @@ img:hover {
   margin: 1.6rem;
   padding: 1.6rem;
   border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 
 .cart {
@@ -151,6 +154,8 @@ img:hover {
   margin: 1rem;
   display: flex;
   border-bottom: 0.1rem #000000 solid;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 
 .product-price {
@@ -179,6 +184,8 @@ img:hover {
 
 .button.primary:hover {
   background-color: #f0c040;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+
   cursor: pointer;
 }
 
@@ -186,6 +193,9 @@ img:hover {
   overflow: hidden;
 }
 
+.welcome {
+  padding: 1.6rem;
+}
 /* .paypal-button{
   z-index: -100;
 } */

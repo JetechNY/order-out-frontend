@@ -21,6 +21,7 @@ class RestaurantContainer extends React.Component{
         return this.props.restArray.map(restObj => <RestaurantCard key={restObj.id} restObj={restObj} />)
     }
 
+
     renderCards = () => {
         return this.filterRestaurantsFromSearch().map(card=> <RestaurantContainer key={card.id} card={card} />)
     }
@@ -29,9 +30,10 @@ class RestaurantContainer extends React.Component{
         this.setState({searchTerm: searchTerm})
     }
 
-    filterRestaurantsFromSearch = () => {
-    return this.state.restaurants.filter(card => card.term.toLowerCase().includes(this.state.searchTerm.toLowerCase()) || card.className.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
-    }
+    // filterRestaurantsFromSearch = () => {
+    // return this.state.restaurants.filter(card => card.term.toLowerCase().includes(this.state.searchTerm.toLowerCase()) || card.className.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+    // }
+
 
     render(){
         return(

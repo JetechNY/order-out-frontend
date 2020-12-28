@@ -18,7 +18,7 @@ class RestaurantCard extends React.Component {
                                 </div>
                                 <div className="card-content">
                                     <div className="header">
-                                        <strong >{this.props.restObj.name}</strong>
+                                        <strong style={{fontSize: 20}}> {this.props.restObj.name}</strong>
                                     </div>
                                     <div className="price">
                                         Price: {formatCurrency(this.props.restObj.price)}
