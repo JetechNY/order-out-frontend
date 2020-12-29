@@ -1,75 +1,74 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import RestaurantCard from '../Components/RestaurantCard'
 import { connect } from 'react-redux';
 import {getRestaurantFromApi} from '../Redux/actions'
 import {Route, Switch} from 'react-router-dom'
 import RestaurantProfile from '../Components/RestaurantProfile'
 import Fade from 'react-reveal/Fade';
-import Search from '../Components/Search';
 
-class RestaurantContainer extends React.Component{
+const RestaurantContainer = ({getRestaurantFromApi, restArray, addToCart}) => {
 
-    state = {
-        searchTerm: ''
+    const initialState = {
+        search: ""
     }
 
-    componentDidMount(){
-        this.props.getRestaurantFromApi()
+    const [value, setValue] = useState(initialState)
+
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setValue((prevState) => ({ ...prevState, [name]: value }));
+    };
+
+
+    useEffect(() => {
+        getRestaurantFromApi()
+    }, [])
+
+
+    const restaurantsFromSearch = () => {
+    return restArray.filter(restaurant => restaurant.name.toLowerCase().includes(value.search.toLowerCase())).map(restObj => <RestaurantCard key={restObj.id} restObj={restObj} />)
     }
 
-    renderRestaurant = () => {
-        return this.props.restArray.map(restObj => <RestaurantCard key={restObj.id} restObj={restObj} />)
-    }
-
-
-    renderCards = () => {
-        return this.filterRestaurantsFromSearch().map(card=> <RestaurantContainer key={card.id} card={card} />)
-    }
-
-    handleSearchChange = (searchTerm) => {
-        this.setState({searchTerm: searchTerm})
-    }
-
-    // filterRestaurantsFromSearch = () => {
-    // return this.state.restaurants.filter(card => card.term.toLowerCase().includes(this.state.searchTerm.toLowerCase()) || card.className.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
-    // }
-
-
-    render(){
-        return(
-            <Fade>
-                <div className="search">
-                    <Search searchTerm={this.state.searchTerm} handleSearchChange={this.handleSearchChange} />
-                </div>
-                <Switch>
-                    <Route
-                        path='/restaurants/:id'
-                        render={({match})=>{
-                            return(
-                                <div>
-                                    <RestaurantProfile rest={this.props.restArray.find(rest=>rest.id == match.params.id)} addToCart={this.props.addToCart}/>
-                                </div>
-                                )
-                            }}/>
-                    <Route
-                        path='/restaurants'
-                        render={()=>{
-                            return(
-                                <div>
-                                    <h3>Here are the restaurants near you!</h3>
-                                    <div>
-                                        <div className="index">
-                                        {this.renderRestaurant()}
-                                        </div>
-                                    </div>
-                                </div>
+    return(
+        <Fade>
+            <div className="search">
+                <form className="search-form" >
+                    <input className="search-bar" name="search" value={value.search} onChange={handleChange} placeholder="Search Restaurants"/>
+                </form>
+            </div>
+            <Switch>
+                <Route
+                    path='/restaurants/:id'
+                    render={({match})=>{
+                        return(
+                            <div>
+                                <RestaurantProfile rest={restArray.find(rest=>rest.id == match.params.id)} addToCart={addToCart}/>
+                            </div>
                             )
                         }}/>
+                <Route
+                    path='/restaurants'
+                    render={()=>{
+                        return(
 
-                </Switch>
-            </Fade>
-            )
-    }
+                            <div>
+                                <h3>Here are the restaurants near you!</h3>
+                                <div>
+                                    <div className="index">
+                                    {restaurantsFromSearch().length === 0 ?
+                                    <h2>No restaurants found</h2> :
+                                    restaurantsFromSearch()
+                                    }
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    }}/>
+
+            </Switch>
+        </Fade>
+    )
 }
 
 const msp = (state) => {

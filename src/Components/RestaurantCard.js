@@ -1,6 +1,5 @@
 import React from "react";
 import {Link} from 'react-router-dom'
-import formatCurrency from "./util";
 import Fade from 'react-reveal/Fade'
 import StarRating from './StarRating'
 
@@ -35,7 +34,7 @@ class RestaurantCard extends React.Component {
                                             </div>
                                             <span className = "number-rating">
                                             Rating: {this.props.restObj.rating}/100
-                                            <StarRating rating={this.props.restObj.rating}/>
+                                            <StarRating key={this.props.restObj.id} rating={this.props.restObj.rating}/>
                                             </span>
                                         </div>
                                 </div>

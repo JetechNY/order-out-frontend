@@ -7,18 +7,13 @@ import RestaurantContainer from './Containers/RestaurantContainer';
 import Cart from './Components/Cart';
 import {
   withRouter,
-  Switch,
-  Route,
-  Link,
-  Redirect
+  Route
 } from "react-router-dom";
-import { connect } from 'react-redux';
 import produce from "immer";
 
 
 class App extends React.Component {
 
-  
 
   state = {
       activeCart: [],
@@ -41,17 +36,6 @@ class App extends React.Component {
   }
 
   addToCart = (menuObj) => {
-    // const cartItems = this.state.activeCart.menu_items.slice();
-    // let alreadyInCart = false;
-    // cartItems.forEach((item) => {
-    //   if (item.id === menuObj.id) {
-    //     item.count++;
-    //     alreadyInCart = true;
-    //   }
-    // });
-    // if (!alreadyInCart) {
-    //   cartItems.push({ ...menuObj.id, count: 1 });
-    // }
     fetch('http://localhost:3000/api/v1/cart_items', {
       method: "POST",
       headers: {
@@ -74,7 +58,7 @@ class App extends React.Component {
   }
 
   removeFromCart = (menuitem) => {
-    let cartItem = this.state.activeCart.cart_items.find(item => item.menu_item_id == menuitem.id )
+    let cartItem = this.state.activeCart.cart_items.find(item => item.menu_item_id === menuitem.id )
     //use filter instead of find?
     let cartIndex = this.state.activeCart.cart_items.indexOf(cartItem)
     let menuIndex = this.state.activeCart.menu_items.indexOf(menuitem)
@@ -134,7 +118,6 @@ class App extends React.Component {
       }
 
     render(){
-      // console.log("historycart",this.state.past_orders)
       return (
         <>
         { this.state.activeCart.length === 0 ? <h2>loading</h2> :
@@ -179,7 +162,7 @@ class App extends React.Component {
                       render={()=>{
                         return(
                           <div className="index">
-                          <History pastOrders={this.state.past_orders}/>
+                          <History key={this.state.past_orders} pastOrders={this.state.past_orders}/>
                           </div>
                         )
                   }}/>
