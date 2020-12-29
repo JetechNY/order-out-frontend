@@ -49,7 +49,7 @@ export default class History extends Component {
     render() {
         // console.log("old cart", this.props.pastOrders)
         return (
-            <div>
+            <div className="history">
                 <p>Your Order History</p>
                 {this.renderOldCart()}
             </div>

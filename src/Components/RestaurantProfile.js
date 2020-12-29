@@ -27,14 +27,14 @@ class RestaurantProfile extends React.Component {
                             Phone: {this.props.rest.display_phone}
                         </div>
                     </div>
-                    <div className="extra content">
+                    {/* <div className="extra content"> */}
                         <div className="rating">
                         Rating: {this.props.rest.rating}/100
                         </div>
                         <div className="photos">
                         Photos: {this.props.rest.photos}
                         </div>
-                    </div>
+                    {/* </div> */}
                 </div>
                 <div>
                     <MenuContainer itemsArray={this.props.rest.menu_items}  addToCart={this.props.addToCart}/>

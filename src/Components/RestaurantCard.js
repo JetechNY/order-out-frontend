@@ -22,7 +22,7 @@ class RestaurantCard extends React.Component {
                                         <strong style={{fontSize: 20}}> {this.props.restObj.name}</strong>
                                     </div>
                                     <div className="price">
-                                        Price: {formatCurrency(this.props.restObj.price)}
+                                        Price: {this.props.restObj.price}
                                     </div>
                                 </div>
                                 <div className="extra-content">

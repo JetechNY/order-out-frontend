@@ -17,13 +17,14 @@ class Cart extends React.Component {
         const { menuItems } = this.props;
 
         return menuItems.map((item) => (
-            <div>
+            <div className="cartcard" >
+                <ul className='cart-items'>
                     <Fade left cascade>
-
                 <div key={item.id}>
                 <div>
                     <img src={item.img} alt={item.name}></img>
                 </div>
+
                 <div>
                     <div>{item.name}</div>
                     <div className="right">
@@ -31,8 +32,8 @@ class Cart extends React.Component {
                     {/* x {item.count}{" "} */}
                     <button
                     //this just shows the item iteself times how many (how many currently not showing)
-                        className="button primary"
-                        onClick={() => this.props.removeFromCart(item)}
+                    className="button primary"
+                    onClick={() => this.props.removeFromCart(item)}
                     >
                         Remove Item
                     </button>
@@ -40,6 +41,7 @@ class Cart extends React.Component {
                 </div>
                 </div>
                     </Fade>
+                </ul>
             </div>
         ))
     }
@@ -54,7 +56,7 @@ render() {
             <div className="cart cart-header">Your cart is empty</div>
         ) : (
             <div className="cart cart-header">
-            You have {menuItems.length} in the cart{" "}
+            You have {menuItems.length} items in the cart{" "}
         </div>
         )}
         <div>

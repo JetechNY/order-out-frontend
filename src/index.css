@@ -114,8 +114,16 @@ a:hover {
   display: flex;
   flex-direction: column;
   max-width: 40rem;
-  background-color: rgb(64, 173, 203) ;
+  background-color: rgb(235, 235, 206) ;
+  padding-inline-start: 10px;
+
 }
+
+.cart-items{
+  padding-inline-start: 0px;
+
+}
+
 
 img {
   border: 1px solid #ddd;
@@ -134,14 +142,14 @@ img:hover {
   flex-direction: row;
   /* padding: 0; */
   /* margin: 0; */
-  background-color: rgb(146, 187, 105);
+  /* background-color: rgb(17, 179, 103); */
   /* justify-content: center; */
   align-items: center;
   /* align-content: space-around; */
 }
 
 .ui-link-cards{
-  background-color: rgb(215, 216, 196);
+  background-color: rgb(241, 242, 219);
   margin: 1.6rem;
   padding: 1.6rem;
   border-radius: 5px;
@@ -149,14 +157,23 @@ img:hover {
 
 }
 
+.history{
+  margin: 1.6rem;
+  padding: 1.6rem;
+}
+
+
 .cart {
   padding: 1rem;
   margin: 1rem;
   display: flex;
+  justify-content: initial;
+
   border-bottom: 0.1rem #000000 solid;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 }
+
 
 .product-price {
   display: flex;
@@ -164,7 +181,9 @@ img:hover {
   align-items: center;
 }
 
-.menu-items a{
+.menu-items {
+  border-radius: 15px;
+
 
 
 }
@@ -199,3 +218,6 @@ img:hover {
 /* .paypal-button{
   z-index: -100;
 } */
+.mcard{
+
+}
