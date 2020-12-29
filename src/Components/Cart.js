@@ -96,7 +96,7 @@ render() {
                 </div>
             </div>
             <div className="paypal-button">
-                    <PayPalButton/>
+                    {/* <PayPalButton/> */}
             </div>
         </div>
         )}
