@@ -29,9 +29,9 @@ class RestaurantProfile extends React.Component {
                         <div className="rating">
                         Rating: {this.props.rest.rating}/100
                         </div>
-                        <div className="photos">
+                        {/* <div className="photos">
                         Photos: {this.props.rest.photos}
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div>
