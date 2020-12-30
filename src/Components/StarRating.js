@@ -4,7 +4,7 @@ import {FaStar} from "react-icons/fa"
 
 const StarRating = () => {
 
-    // console.log("rating", this.props)
+    // console.log("rating", this.props.rating)
 
     return (
         <div>
@@ -12,7 +12,7 @@ const StarRating = () => {
                 const ratingValue = i + 1;
 
                 return (
-                <FaStar className="star" size = {20} />
+                <FaStar className="star" color = {"#ffc107"} size = {20} />
                 )
             })}
         </div>
@@ -20,3 +20,5 @@ const StarRating = () => {
 }
 
 export default StarRating;
+
+// color {"#e4e5e9"}

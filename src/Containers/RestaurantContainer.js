@@ -32,11 +32,6 @@ const RestaurantContainer = ({getRestaurantFromApi, restArray, addToCart}) => {
 
     return(
         <Fade>
-            <div className="search">
-                <form className="search-form" >
-                    <input className="search-bar" name="search" value={value.search} onChange={handleChange} placeholder="Search Restaurants"/>
-                </form>
-            </div>
             <Switch>
                 <Route
                     path='/restaurants/:id'
@@ -54,6 +49,11 @@ const RestaurantContainer = ({getRestaurantFromApi, restArray, addToCart}) => {
 
                             <div>
                                 <h3>Here are the restaurants near you!</h3>
+            <div className="search">
+                <form className="search-form" >
+                    <input className="search-bar" name="search" value={value.search} onChange={handleChange} placeholder="Search Restaurants"/>
+                </form>
+            </div>
                                 <div>
                                     <div className="index">
                                     {restaurantsFromSearch().length === 0 ?

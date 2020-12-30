@@ -1,6 +1,6 @@
 import React from 'react';
 import NavBar from './Components/Navbar';
-import Account from './Components/later/Account';
+import Account from './Components/Account';
 import Home from './Components/Home';
 import History from './Components/History';
 import RestaurantContainer from './Containers/RestaurantContainer';

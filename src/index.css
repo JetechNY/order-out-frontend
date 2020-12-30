@@ -140,8 +140,8 @@ img:hover {
 .index{
   display: flex;
   flex-direction: row;
-  /* padding: 0; */
-  /* margin: 0; */
+  padding: 1.6rem;
+  margin: 1.6rem;
   /* background-color: rgb(17, 179, 103); */
   background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
   /* justify-content: center; */
@@ -155,7 +155,6 @@ img:hover {
   padding: 1.6rem;
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
 }
 
 .history{
@@ -184,6 +183,7 @@ img:hover {
 
 .menu-items {
   border-radius: 15px;
+  padding: 1.6rem;
 
 
 
@@ -219,6 +219,21 @@ img:hover {
 /* .paypal-button{
   z-index: -100;
 } */
-.mcard{
 
+.menuindex{
+  display: flex;
+  /* justify-content: space-between; */
+  flex-wrap: wrap;
+}
+
+.mcard{
+  max-width: 25rem;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.card-content{
+  max-width: 75rem;
+  padding: 1rem;
+  margin: 1rem;
 }
