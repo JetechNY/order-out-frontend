@@ -31,7 +31,7 @@ const RestaurantContainer = ({getRestaurantFromApi, restArray, addToCart}) => {
     }
 
     return(
-        <Fade>
+        <Fade right cascade>
             <Switch>
                 <Route
                     path='/restaurants/:id'

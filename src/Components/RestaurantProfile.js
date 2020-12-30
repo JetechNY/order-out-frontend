@@ -1,13 +1,13 @@
 import React from "react";
 import MenuContainer from '../Containers/MenuContainer'
 
-
 class RestaurantProfile extends React.Component {
 
     render() {
         return (
             this.props.rest ?
                 <>
+
             <div className="ui link cards" key={this.props.rest.id}>
                 <div className="card">
                     <div className="image">
@@ -38,6 +38,7 @@ class RestaurantProfile extends React.Component {
                     <MenuContainer itemsArray={this.props.rest.menu_items}  addToCart={this.props.addToCart}/>
                 </div>
             </div>
+
                 </>
             :
             <h2> Loading </h2>

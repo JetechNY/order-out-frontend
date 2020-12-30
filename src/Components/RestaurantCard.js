@@ -9,9 +9,9 @@ class RestaurantCard extends React.Component {
     render() {
         return (
             <div>
-                    <Fade bottom cascade>
                     <Link to={`/restaurants/${this.props.restObj.id}`}>
                         <div className="ui-link-cards">
+                    <Fade down cascade>
                             <div className="card">
                                 <div className="image">
                                     <img alt={this.props.restObj.name} src={this.props.restObj.image_url}/>
@@ -41,9 +41,9 @@ class RestaurantCard extends React.Component {
                                         </div>
                                 </div>
                             </div>
+                    </Fade>
                         </div>
                     </Link>
-                    </Fade>
                 </div>
         );
     };
