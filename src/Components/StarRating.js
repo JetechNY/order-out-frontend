@@ -1,23 +1,19 @@
-import React from "react"
-import {FaStar} from "react-icons/fa"
-
+import React from "react";
+import { FaStar } from "react-icons/fa";
 
 const StarRating = () => {
+  // console.log("rating", this.props.rating)
 
-    // console.log("rating", this.props.rating)
+  return (
+    <div>
+      {[...Array(5)].map((star, i) => {
+        const ratingValue = i + 1;
 
-    return (
-        <div>
-            {[...Array(5)].map((star, i) => {
-                const ratingValue = i + 1;
-
-                return (
-                <FaStar className="star" color = {"#ffc107"} size = {20} />
-                )
-            })}
-        </div>
-    )
-}
+        return <FaStar className="star" color={"#ffc107"} size={20} />;
+      })}
+    </div>
+  );
+};
 
 export default StarRating;
 
