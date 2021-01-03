@@ -3,9 +3,25 @@ import formatCurrency from "./util";
 import { connect } from "react-redux";
 import { Link, Route, Switch, Redirect } from "react-router-dom";
 import { PayPalButton } from "react-paypal-button-v2";
+import { Button } from "semantic-ui-react";
+
 import Fade from "react-reveal/Fade";
 
 class Cart extends React.Component {
+  state = {
+    count: 1,
+  };
+
+  handleAdd = () => {
+    this.setState({ count: this.state.count + 1 });
+  };
+
+  handleMinus = () => {
+    return this.state.count === 0
+      ? null
+      : this.setState({ count: this.state.count - 1 });
+  };
+
   handleCheckout = (e) => {
     e.preventDefault();
 
@@ -23,10 +39,16 @@ class Cart extends React.Component {
               <div>
                 <img src={item.img} alt={item.name}></img>
               </div>
-
+              <div>
+                <Button.Group>
+                  <Button onClick={this.handleMinus}>-</Button>
+                  <Button>{this.state.count}</Button>
+                  <Button onClick={this.handleAdd}>+</Button>
+                </Button.Group>
+              </div>
               <div>
                 <div>{item.name}</div>
-                <div className="right">
+                <div className="price">
                   {formatCurrency(item.price)}
                   {/* x {item.count}{" "} */}
                   <button
@@ -68,7 +90,7 @@ class Cart extends React.Component {
                   <div>
                     Total:{" "}
                     {formatCurrency(
-                      menuItems.reduce((agg, c) => agg + c.price, 0)
+                      menuItems.reduce((a, b) => a + parseFloat(b.price), 0)
                       //this is the total cost at the bottom of cart.
                     )}
                   </div>

@@ -3,8 +3,8 @@ import NavBar from "./Components/Navbar";
 import Account from "./Components/later/Account";
 import Home from "./Components/Home";
 import History from "./Components/History";
-import RestaurantContainer from "./Containers/RestaurantContainer";
 import Cart from "./Components/Cart";
+import RestaurantContainer from "./Containers/RestaurantContainer";
 import { withRouter, Route } from "react-router-dom";
 import produce from "immer";
 
@@ -167,7 +167,7 @@ class App extends React.Component {
                     render={() => {
                       return (
                         <div className="index">
-                          <History
+                          <History 
                             key={this.state.past_orders}
                             pastOrders={this.state.past_orders}
                           />

@@ -12,7 +12,6 @@ export default class History extends Component {
             <a>
               <img alt={item.name} src={item.img} />
               <p> {item.name}</p>
-              <p> {item.description}</p>
             </a>
             <div className="product-price">
               <div> Price: {formatCurrency(item.price)}</div>
@@ -41,7 +40,7 @@ export default class History extends Component {
     return (
       <div className="history">
         <p>Your Order History</p>
-        {this.renderOldCart()}
+        <div className="menuindex">{this.renderOldCart()}</div>
       </div>
     );
   }
