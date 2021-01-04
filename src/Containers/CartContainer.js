@@ -6,12 +6,13 @@ import { PayPalButton } from "react-paypal-button-v2";
 import { Button } from "semantic-ui-react";
 
 import Fade from "react-reveal/Fade";
+import CartCard from "../Components/CartCard";
 
 class CartContainer extends React.Component {
+
   state = {
     count: 1,
   };
-
 
   handleAdd = () => {
     this.setState({ count: this.state.count + 1 });
@@ -23,49 +24,9 @@ class CartContainer extends React.Component {
       : this.setState({ count: this.state.count - 1 });
   };
 
-  handleCheckout = (e) => {
+  checkout = (e) => {
     e.preventDefault();
-
     this.props.handleCheckout(e);
-  };
-
-  renderCart = () => {
-    const { menuItems } = this.props;
-
-    return menuItems.map((item) => (
-      <div className="cartcard">
-        <ul className="cart-items">
-          <Fade left cascade>
-            <div key={item.id}>
-              <div>
-                <img src={item.img} alt={item.name}></img>
-              </div>
-              <div>
-                <Button.Group>
-                  <Button onClick={this.handleMinus}>-</Button>
-                  <Button>{this.state.count}</Button>
-                  <Button onClick={this.handleAdd}>+</Button>
-                </Button.Group>
-              </div>
-              <div>
-                <div>{item.name}</div>
-                <div className="price">
-                  {formatCurrency(item.price)}
-                  {/* x {item.count}{" "} */}
-                  <button
-                    //this just shows the item iteself times how many (how many currently not showing)
-                    className="button primary"
-                    onClick={() => this.props.removeFromCart(item)}
-                  >
-                    Remove Item
-                  </button>
-                </div>
-              </div>
-            </div>
-          </Fade>
-        </ul>
-      </div>
-    ));
   };
 
   render() {
@@ -82,7 +43,9 @@ class CartContainer extends React.Component {
         )}
         <div>
           <div className="cart">
-            <ul className="cart-items">{this.renderCart()}</ul>
+            <ul className="cart-items">
+              <CartCard menuItems={menuItems} handleAdd={this.handleAdd} handleMinus={this.handleMinus}  />
+            </ul>
           </div>
           {menuItems.length !== 0 && (
             <div>
@@ -114,7 +77,7 @@ class CartContainer extends React.Component {
                     </div>
                   </div>
                   <div>
-                    <form onSubmit={this.handleCheckout}>
+                    <form onSubmit={this.checkout}>
                       {/* <Link to={`/checkout`}> */}
                       <button className="button primary" type="submit">
                         Checkout
@@ -124,7 +87,7 @@ class CartContainer extends React.Component {
                   </div>
                 </div>
               </div>
-              <div className="paypal-button">{/* <PayPalButton/> */}</div>
+              <div className="paypal-button"><PayPalButton/></div>
             </div>
           )}
         </div>

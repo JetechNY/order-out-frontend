@@ -23,7 +23,7 @@ class Cart extends React.Component {
       : this.setState({ count: this.state.count - 1 });
   };
 
-  handleCheckout = (e) => {
+  checkout = (e) => {
     e.preventDefault();
 
     this.props.handleCheckout(e);
@@ -40,13 +40,13 @@ class Cart extends React.Component {
               <div>
                 <img src={item.img} alt={item.name}></img>
               </div>
-              <div>
+              {/* <div>
                 <Button.Group>
                   <Button onClick={this.handleMinus}>-</Button>
                   <Button>{this.state.count}</Button>
                   <Button onClick={this.handleAdd}>+</Button>
                 </Button.Group>
-              </div>
+              </div> */}
               <div>
                 <div>{item.name}</div>
                 <div className="price">
@@ -114,7 +114,7 @@ class Cart extends React.Component {
                     </div>
                   </div>
                   <div>
-                    <form onSubmit={this.handleCheckout}>
+                    <form onSubmit={this.checkout}>
                       {/* <Link to={`/checkout`}> */}
                       <button className="button primary" type="submit">
                         Checkout

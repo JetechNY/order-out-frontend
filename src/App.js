@@ -184,13 +184,13 @@ class App extends React.Component {
                     handleCheckout={this.handleCheckout}
                   />
                 </div>
-                <div className="sidebar">
+                {/* <div className="sidebar">
                   <CartContainer
                     menuItems={this.state.activeCart.menu_items}
                     removeFromCart={this.removeFromCart}
                     handleCheckout={this.handleCheckout}
                   />
-                </div>
+                </div> */}
               </div>
             </main>
             <footer> Order Out By SunJet Liu </footer>
