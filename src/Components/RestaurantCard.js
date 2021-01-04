@@ -2,8 +2,31 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Fade from "react-reveal/Fade";
 import StarRating from "./StarRating";
+import { Button } from "semantic-ui-react";
+
 
 class RestaurantCard extends React.Component {
+
+  state = {
+    isStarred: false
+}
+
+handleStarCard = () => {
+
+  fetch(`http://localhost:3000/api/v1/favorites`, {
+          method: 'PATCH',
+          headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json',
+          },
+          body: JSON.stringify({...this.props.card, is_starred: !this.state.isStarred})
+      })
+      .then(resp => resp.json())
+      .then(card => {this.setState({isStarred: card.is_starred})})
+      .catch(err => console.log(err))
+
+}
+
   render() {
     return (
       <div>
@@ -16,6 +39,9 @@ class RestaurantCard extends React.Component {
                     alt={this.props.restObj.name}
                     src={this.props.restObj.image_url}
                   />
+
+              <Button onClick={this.handleStarCard}>{this.state.isStarred ? <i className="star icon" />: <i className="star outline icon" />}</Button>
+
                 </div>
                 <div className="card-content">
                   <div className="header">

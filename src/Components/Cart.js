@@ -23,6 +23,10 @@ class Cart extends React.Component {
       : this.setState({ count: this.state.count - 1 });
   };
 
+  successPayment = () =>{
+
+  }
+
   checkout = (e) => {
     e.preventDefault();
 
@@ -91,7 +95,7 @@ class Cart extends React.Component {
                   <div>
                     Total:{" "}
                     {formatCurrency(
-                      menuItems.reduce((a, b) => a + parseFloat(b.price), 0)
+                      menuItems.reduce((a, b) => a + parseFloat(b.price), 0).toFixed(2)
                       //this is the total cost at the bottom of cart.
                     )}
                   </div>
@@ -124,7 +128,7 @@ class Cart extends React.Component {
                   </div>
                 </div>
               </div>
-              <div className="paypal-button">{/* <PayPalButton/> */}</div>
+              {/* <div className="paypal-button"><PayPalButton onSuccess={this.successPayment}/></div> */}
             </div>
           )}
         </div>

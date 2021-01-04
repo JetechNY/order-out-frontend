@@ -4,7 +4,6 @@ import Account from "./Components/later/Account";
 import Home from "./Components/Home";
 import History from "./Components/History";
 import Cart from "./Components/Cart";
-import CartContainer from "./Containers/CartContainer";
 import RestaurantContainer from "./Containers/RestaurantContainer";
 import { withRouter, Route } from "react-router-dom";
 import produce from "immer";
@@ -150,7 +149,11 @@ class App extends React.Component {
                   <Route
                     path="/my-account"
                     render={() => {
-                      return <div className="index">{/* <Account /> */}</div>;
+                      return (
+                        <div className="index">
+                          <Account />
+                        </div>
+                      );
                     }}
                   />
                   <Route

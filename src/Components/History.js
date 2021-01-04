@@ -29,7 +29,15 @@ export default class History extends Component {
       return (
         <div>
           <p> Cart #: {carts.id} </p>
+          <div>
+            Total:{" "}
+            {formatCurrency(
+              carts.menu_items.reduce((a, b) => a + parseFloat(b.price), 0)
+              //this is the total cost at the bottom of cart.
+            )}
+          </div>
           {this.renderItems(carts.menu_items)}
+          <hr></hr>
         </div>
       );
     });

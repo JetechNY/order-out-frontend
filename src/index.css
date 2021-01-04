@@ -41,7 +41,6 @@ header {
   padding: 0.5rem;
   position: fixed;
   top: 0;
-  /* height: 7rem; */
   z-index: 1;
 
 }
@@ -69,12 +68,6 @@ header a {
   color: #ffffff;
   text-decoration: none;
 }
-/* a {
-  text-decoration: none;
-} */
-/* a:hover {
-  color: #ff8000;
-} */
 
 .welcome{
   text-align: center;
@@ -128,7 +121,11 @@ img {
   border-radius: 4px;
   padding: 5px;
   margin: 5px;
-  width: 150px;
+  width: 200px;
+}
+
+.welcome img{
+  width: 80%;
 }
 
 img:hover {
@@ -224,4 +221,31 @@ img:hover {
   max-width: 75rem;
   padding: 1rem;
   margin: 1rem;
+}
+
+.product-details{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-height: 96vh;
+
+}
+
+.product-details-modal img{
+  max-height: 100vh;
+  max-width: 46rem;
+  margin: 0 auto;
+  width: auto;
+}
+
+.product-details-description{
+  flex: 1 1;
+  margin: 1rem;
+}
+
+.close-modal{
+  position: absolute;
+  right: 1rem;
+  top: 2.5rem;
+  z-index: 1000;
 }
