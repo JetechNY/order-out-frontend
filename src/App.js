@@ -4,6 +4,7 @@ import Account from "./Components/later/Account";
 import Home from "./Components/Home";
 import History from "./Components/History";
 import Cart from "./Components/Cart";
+import CartContainer from "./Containers/CartContainer";
 import RestaurantContainer from "./Containers/RestaurantContainer";
 import { withRouter, Route } from "react-router-dom";
 import produce from "immer";
@@ -167,7 +168,7 @@ class App extends React.Component {
                     render={() => {
                       return (
                         <div className="index">
-                          <History 
+                          <History
                             key={this.state.past_orders}
                             pastOrders={this.state.past_orders}
                           />
@@ -178,6 +179,13 @@ class App extends React.Component {
                 </div>
                 <div className="sidebar">
                   <Cart
+                    menuItems={this.state.activeCart.menu_items}
+                    removeFromCart={this.removeFromCart}
+                    handleCheckout={this.handleCheckout}
+                  />
+                </div>
+                <div className="sidebar">
+                  <CartContainer
                     menuItems={this.state.activeCart.menu_items}
                     removeFromCart={this.removeFromCart}
                     handleCheckout={this.handleCheckout}

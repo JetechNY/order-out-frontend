@@ -1,5 +1,5 @@
 import React from "react";
-import formatCurrency from "./util";
+import formatCurrency from "../Components/util";
 import { connect } from "react-redux";
 import { Link, Route, Switch, Redirect } from "react-router-dom";
 import { PayPalButton } from "react-paypal-button-v2";
@@ -7,7 +7,7 @@ import { Button } from "semantic-ui-react";
 
 import Fade from "react-reveal/Fade";
 
-class Cart extends React.Component {
+class CartContainer extends React.Component {
   state = {
     count: 1,
   };
@@ -133,4 +133,4 @@ class Cart extends React.Component {
   }
 }
 
-export default Cart;
+export default CartContainer;
