@@ -34,8 +34,8 @@ class RestaurantCard extends React.Component {
                     <div className="stars-outer">
                       <div className="starts-inner"></div>
                     </div>
-                    Rating: {this.props.restObj.rating}/100
                     <span className="number-rating">
+                      Rating:{" "}
                       <StarRating
                         key={this.props.restObj.id}
                         rating={this.props.restObj.rating}

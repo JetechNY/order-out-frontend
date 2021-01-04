@@ -1,27 +1,51 @@
 import React from "react";
-import { FaStar } from "react-icons/fa";
-import { Rating } from 'semantic-ui-react'
+import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 
-const StarRating = () => {
-  // console.log("rating", this.props.rating)
-
+export default function StarRating(props) {
+  const { rating } = props;
   return (
-    <div>
+    <div className="rating">
+      <span>
+        {rating >= 20 ? (
+          <FaStar className="star" color={"#ffc107"} size={20} />
+        ) : rating >= 10 ? (
+          <FaStarHalfAlt className="star" color={"#ffc107"} size={20} />
+        ) : (
+          <FaRegStar className="star" color={"#ffc107"} size={20} />
+        )}
 
-      {/* <Rating icon='star' size='large' defaultRating={0} maxRating={5} />
-      <hr>
-      </hr> */}
+        {rating >= 40 ? (
+          <FaStar className="star" color={"#ffc107"} size={20} />
+        ) : rating >= 30 ? (
+          <FaStarHalfAlt className="star" color={"#ffc107"} size={20} />
+        ) : (
+          <FaRegStar className="star" color={"#ffc107"} size={20} />
+        )}
 
-      {[...Array(5)].map((star, i) => {
-        const ratingValue = i + 1;
+        {rating >= 60 ? (
+          <FaStar className="star" color={"#ffc107"} size={20} />
+        ) : rating >= 50 ? (
+          <FaStarHalfAlt className="star" color={"#ffc107"} size={20} />
+        ) : (
+          <FaRegStar className="star" color={"#ffc107"} size={20} />
+        )}
 
-        return <FaStar className="star" color={"#ffc107"} size={20} />;
-      })}
+        {rating >= 80 ? (
+          <FaStar className="star" color={"#ffc107"} size={20} />
+        ) : rating >= 70 ? (
+          <FaStarHalfAlt className="star" color={"#ffc107"} size={20} />
+        ) : (
+          <FaRegStar className="star" color={"#ffc107"} size={20} />
+        )}
 
+        {rating >= 100 ? (
+          <FaStar className="star" color={"#ffc107"} size={20} />
+        ) : rating >= 90 ? (
+          <FaStarHalfAlt className="star" color={"#ffc107"} size={20} />
+        ) : (
+          <FaRegStar className="star" color={"#ffc107"} size={20} />
+        )}
+      </span>
     </div>
   );
-};
-
-export default StarRating;
-
-// gray color {"#e4e5e9"}
+}

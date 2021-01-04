@@ -1,5 +1,6 @@
 import React from "react";
 import MenuContainer from "../Containers/MenuContainer";
+import StarRating from "./StarRating";
 
 class RestaurantProfile extends React.Component {
   render() {
@@ -21,7 +22,13 @@ class RestaurantProfile extends React.Component {
               <div className="phone">
                 Phone: {this.props.rest.display_phone}
               </div>
-              <div className="rating">Rating: {this.props.rest.rating}/100</div>
+              <div className="rating">
+                Rating:{" "}
+                <StarRating
+                  key={this.props.rest.id}
+                  rating={this.props.rest.rating}
+                />
+              </div>
               {/* <div className="photos">
                         Photos: {this.props.rest.photos}
                         </div> */}
