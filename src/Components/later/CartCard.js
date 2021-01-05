@@ -1,5 +1,5 @@
 import React from "react";
-import formatCurrency from "./util";
+import formatCurrency from "../util";
 import { Button } from "semantic-ui-react";
 import Fade from "react-reveal/Fade";
 

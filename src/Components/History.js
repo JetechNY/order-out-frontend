@@ -7,7 +7,7 @@ export default class History extends Component {
     return menu_items.map((item, i) => {
       // console.log("item",item)
       return (
-        <div className="mcard" key={i}>
+        <div className="hmcard" key={i}>
           <ul className="menu-items">
             <a>
               <img alt={item.name} src={item.img} />

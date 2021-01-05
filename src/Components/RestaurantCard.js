@@ -40,7 +40,7 @@ handleStarCard = () => {
                     src={this.props.restObj.image_url}
                   />
 
-              <Button onClick={this.handleStarCard}>{this.state.isStarred ? <i className="star icon" />: <i className="star outline icon" />}</Button>
+              {/* <Button onClick={this.handleStarCard}>{this.state.isStarred ? <i className="star icon" />: <i className="star outline icon" />}</Button> */}
 
                 </div>
                 <div className="card-content">

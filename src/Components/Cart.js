@@ -3,7 +3,7 @@ import formatCurrency from "./util";
 import { connect } from "react-redux";
 import { Link, Route, Switch, Redirect } from "react-router-dom";
 import { PayPalButton } from "react-paypal-button-v2";
-import { Button } from "semantic-ui-react";
+import { Button, Form } from "semantic-ui-react";
 
 import Fade from "react-reveal/Fade";
 
@@ -11,7 +11,6 @@ class Cart extends React.Component {
   state = {
     count: 1,
   };
-
 
   handleAdd = () => {
     this.setState({ count: this.state.count + 1 });
@@ -23,9 +22,7 @@ class Cart extends React.Component {
       : this.setState({ count: this.state.count - 1 });
   };
 
-  successPayment = () =>{
-
-  }
+  successPayment = () => {};
 
   checkout = (e) => {
     e.preventDefault();
@@ -56,13 +53,9 @@ class Cart extends React.Component {
                 <div className="price">
                   {formatCurrency(item.price)}
                   {/* x {item.count}{" "} */}
-                  <button
-                    //this just shows the item iteself times how many (how many currently not showing)
-                    className="button primary"
-                    onClick={() => this.props.removeFromCart(item)}
-                  >
+                  <Button onClick={() => this.props.removeFromCart(item)}>
                     Remove Item
-                  </button>
+                  </Button>
                 </div>
               </div>
             </div>
@@ -85,21 +78,23 @@ class Cart extends React.Component {
           </div>
         )}
         <div>
-          <div className="cart">
-            <ul className="cart-items">{this.renderCart()}</ul>
-          </div>
           {menuItems.length !== 0 && (
             <div>
               <div className="cart">
+                <ul className="cart-items">{this.renderCart()}</ul>
+              </div>
+              <div className="cart-total">
                 <div className="total">
                   <div>
                     Total:{" "}
                     {formatCurrency(
-                      menuItems.reduce((a, b) => a + parseFloat(b.price), 0).toFixed(2)
+                      menuItems
+                        .reduce((a, b) => a + parseFloat(b.price), 0)
+                        .toFixed(2)
                       //this is the total cost at the bottom of cart.
                     )}
                   </div>
-                  <div className="note">
+                  {/* <div className="note">
                     <div>
                       <form onSubmit={this.submitHandler}>
                         <input
@@ -116,15 +111,11 @@ class Cart extends React.Component {
                         />
                       </form>
                     </div>
-                  </div>
+                  </div> */}
                   <div>
-                    <form onSubmit={this.checkout}>
-                      {/* <Link to={`/checkout`}> */}
-                      <button className="button primary" type="submit">
-                        Checkout
-                      </button>
-                      {/* </Link> */}
-                    </form>
+                    <Form onSubmit={this.checkout}>
+                      <Button type="submit">Checkout</Button>
+                    </Form>
                   </div>
                 </div>
               </div>

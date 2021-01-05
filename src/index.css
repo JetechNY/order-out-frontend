@@ -42,12 +42,10 @@ header {
   position: fixed;
   top: 0;
   z-index: 1;
-
 }
 
 main {
   grid-area: main;
-
 }
 footer {
   grid-area: footer;
@@ -61,7 +59,6 @@ footer {
   bottom: 0;
   width: 100%;
   height: 2rem;
-
 }
 
 header a {
@@ -69,7 +66,7 @@ header a {
   text-decoration: none;
 }
 
-.welcome{
+.welcome {
   text-align: center;
 }
 
@@ -81,7 +78,7 @@ header a {
   text-decoration: none;
 }
 
-.navbar-links{
+.navbar-links {
   width: 100vw;
   display: flex;
   justify-content: space-around;
@@ -95,26 +92,22 @@ header a {
 }
 .main {
   flex: 75%;
-
 }
 .sidebar {
   flex: 25%;
 }
 
-.menu-items{
+.menu-items {
   display: flex;
   flex-direction: column;
   max-width: 40rem;
-  background-color: rgb(235, 235, 206) ;
+  background-color: rgb(235, 235, 206);
   padding-inline-start: 10px;
-
 }
 
-.cart-items{
+.cart-items {
   padding-inline-start: 0px;
-
 }
-
 
 img {
   border: 1px solid #ddd;
@@ -124,7 +117,7 @@ img {
   width: 200px;
 }
 
-.welcome img{
+.welcome img {
   width: 80%;
 }
 
@@ -132,7 +125,7 @@ img:hover {
   box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
 
-.index{
+.index {
   display: flex;
   flex-direction: row;
   padding: 1.6rem;
@@ -144,7 +137,7 @@ img:hover {
   /* align-content: space-around; */
 }
 
-.ui-link-cards{
+.ui-link-cards {
   background-color: rgb(241, 242, 219);
   margin: 1rem;
   padding: 0.9rem;
@@ -152,13 +145,12 @@ img:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.history{
+.history {
   margin: 1.6rem;
   padding: 1.6rem;
 }
 
-
-.cart {
+.cart, .cart-total{
   padding: 1rem;
   margin: 1rem;
   display: flex;
@@ -185,16 +177,17 @@ img:hover {
 }
 
 .button {
-  padding: .5rem;
+  padding: 0.5rem;
 }
 
 .button.primary:hover {
   background-color: #f0c040;
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
   cursor: pointer;
 }
 
-.sidebar{
+.sidebar {
   overflow: hidden;
 }
 
@@ -205,47 +198,56 @@ img:hover {
   z-index: -100;
 } */
 
-.menuindex{
+.menuindex {
   display: flex;
   /* justify-content: space-between; */
   flex-wrap: wrap;
+  max-width: 75rem;
+
 }
 
-.mcard{
-  max-width: 25rem;
+.mcard {
+  max-width: 20rem;
   padding: 1rem;
   margin: 1rem;
 }
 
-.card-content{
+.hmcard {
+  max-width: 20rem;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.card-content {
   max-width: 75rem;
   padding: 1rem;
   margin: 1rem;
 }
 
-.product-details{
+.product-details {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   max-height: 96vh;
-
 }
 
-.product-details-modal img{
-  max-height: 100vh;
+.product-details-modal img {
+  max-height: 80vh;
   max-width: 46rem;
   margin: 0 auto;
   width: auto;
 }
 
-.product-details-description{
+.product-details-description {
   flex: 1 1;
   margin: 1rem;
 }
 
-.close-modal{
+.close-modal {
   position: absolute;
   right: 1rem;
   top: 2.5rem;
   z-index: 1000;
+  color: red;
 }
+

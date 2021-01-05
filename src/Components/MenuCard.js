@@ -3,6 +3,7 @@ import formatCurrency from "./util";
 import Modal from "react-modal";
 import Fade from "react-reveal/Fade";
 import Zoom from "react-reveal/Zoom";
+import { Button, Card, Icon } from "semantic-ui-react";
 
 class MenuCard extends React.Component {
   constructor(props) {
@@ -52,15 +53,9 @@ class MenuCard extends React.Component {
                   {" "}
                   Price: {formatCurrency(this.props.menuObj.price)}{" "}
                 </div>
-                <div className="button">
-                  <button
-                    onClick={() => this.handleAdd(this.props.menuObj)}
-                    className="button primary"
-                  >
-                    {" "}
-                    Add to cart
-                  </button>
-                </div>
+                <Button onClick={() => this.handleAdd(this.props.menuObj)}>
+                  Add to cart
+                </Button>
               </div>
             </ul>
           </div>
@@ -68,42 +63,38 @@ class MenuCard extends React.Component {
         {menuObj && (
           <Modal isOpen={true} onRequestClose={this.closeModal}>
             <Zoom>
-              <button className="close-modal" onClick={this.closeModal}>
-                x
+              <button onClick={this.closeModal} className="close-modal">
+                X
               </button>
+              {/* <Button onClick={() => this.closeModal()} floated="right" >X</Button> */}
               <div className="product-details-modal">
                 <img
                   alt={this.props.menuObj.name}
                   src={this.props.menuObj.img}
                 />
                 <div className="product-details-description">
-                <p>
-                  {" "}
-                  <strong style={{ fontSize: 20 }}>
+                  <p>
                     {" "}
-                    {this.props.menuObj.name}{" "}
-                  </strong>{" "}
-                </p>
-                <p> {this.props.menuObj.description}</p>
-
+                    <strong style={{ fontSize: 20 }}>
+                      {" "}
+                      {this.props.menuObj.name}{" "}
+                    </strong>{" "}
+                  </p>
+                  <p> {this.props.menuObj.description}</p>
                 </div>
                 <div className="product-price">
                   <div type="number" step="0.01">
                     {" "}
                     Price: {formatCurrency(this.props.menuObj.price)}{" "}
                   </div>
-                  <div className="button">
-                  <button
+                  <Button
                     onClick={() => {
-                      this.handleAdd(this.props.menuObj)
-                      this.closeModal()
+                      this.handleAdd(this.props.menuObj);
+                      this.closeModal();
                     }}
-                    className="button primary"
                   >
-                    {" "}
                     Add to cart
-                  </button>
-                </div>
+                  </Button>
                 </div>
               </div>
             </Zoom>

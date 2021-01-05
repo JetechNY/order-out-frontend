@@ -1,5 +1,5 @@
 import React from "react";
-import formatCurrency from "../Components/util";
+import formatCurrency from "../util";
 import { connect } from "react-redux";
 import { Link, Route, Switch, Redirect } from "react-router-dom";
 import { PayPalButton } from "react-paypal-button-v2";
