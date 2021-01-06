@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import formatCurrency from "./util";
 
 export default class History extends Component {
+
+
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
+
   renderItems = (menu_items) => {
     // console.log("menuitems", menu_items)
     return menu_items.map((item, i) => {
@@ -28,7 +34,7 @@ export default class History extends Component {
     return this.props.pastOrders.map((carts) => {
       return (
         <div>
-          <p> Cart #: {carts.id} </p>
+          <h3> Cart #: {carts.id} </h3>
           <div>
             Total:{" "}
             {formatCurrency(
@@ -47,7 +53,7 @@ export default class History extends Component {
     // console.log("old cart", this.props.pastOrders)
     return (
       <div className="history">
-        <p>Your Order History</p>
+        <h1>Your Order History</h1>
         <div className="menuindex">{this.renderOldCart()}</div>
       </div>
     );

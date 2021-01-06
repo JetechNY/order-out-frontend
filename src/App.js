@@ -4,10 +4,20 @@ import Account from "./Components/later/Account";
 import Home from "./Components/Home";
 import History from "./Components/History";
 import Cart from "./Components/Cart";
+import CheckoutPage from "./Components/CheckoutPage";
 import RestaurantContainer from "./Containers/RestaurantContainer";
 import { withRouter, Route } from "react-router-dom";
 import produce from "immer";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import CheckoutForm from "./CheckoutForm";
 
+// import StripeCheckout from "react-stripe-checkout";
+
+// const stripePromise = loadStripe("pk_test_JJ1eMdKN0Hp4UFJ6kWXWO4ix00jtXzq5XG");
+const stripePromise = loadStripe(
+  "pk_test_51I0e33FZLmnVEIlaq5MQw8C76OVH2RZ9o21XWaSvWkxft7Ek8TYtsuBA8WWNdacrQ9cV0V71gbd5QfpYBkplxj7s00sAET8dTT"
+);
 
 class App extends React.Component {
   state = {
@@ -18,6 +28,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
+
     fetch("http://localhost:3000/api/v1/users/1")
       .then((response) => response.json())
       .then((data) => {
@@ -125,7 +136,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <>
+      <Elements stripe={stripePromise}>
         {this.state.activeCart.length === 0 ? (
           <h2>loading</h2>
         ) : (
@@ -153,6 +164,18 @@ class App extends React.Component {
                       return (
                         <div className="index">
                           <Account />
+                        </div>
+                      );
+                    }}
+                  />
+                  <Route
+                    path="/checkout-page"
+                    render={() => {
+                      return (
+                        <div className="index">
+                          <CheckoutPage
+                            menuItems={this.state.activeCart.menu_items}                     handleCheckout={this.handleCheckout}
+                          />
                         </div>
                       );
                     }}
@@ -187,6 +210,15 @@ class App extends React.Component {
                     removeFromCart={this.removeFromCart}
                     handleCheckout={this.handleCheckout}
                   />
+                  <CheckoutForm />
+                  {/* <button role="link">Stripe Checkout</button> */}
+                  {/* <StripeCheckout
+                    stripeKey="pk_test_n25VuFBwG0P8arNmqBOWXehY00B8Jc6bdi"
+                    token={handleToken}
+                    billingAddress
+                    shippingAddress
+                    amount={calculateSubTotal() * 100}
+                /> */}
                 </div>
                 {/* <div className="sidebar">
                   <CartContainer
@@ -200,7 +232,7 @@ class App extends React.Component {
             <footer> Order Out By SunJet Liu </footer>
           </div>
         )}
-      </>
+      </Elements>
     );
   }
 }

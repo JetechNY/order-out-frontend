@@ -6,8 +6,7 @@ class RestaurantProfile extends React.Component {
   render() {
     return this.props.rest ? (
       <>
-        <div className="ui link cards" key={this.props.rest.id}>
-          <div className="card">
+          <div className="card" key={this.props.rest.id} >
             <div className="image">
               <img alt={this.props.rest.name} src={this.props.rest.image_url} />
             </div>
@@ -29,9 +28,6 @@ class RestaurantProfile extends React.Component {
                   rating={this.props.rest.rating}
                 />
               </div>
-              {/* <div className="photos">
-                        Photos: {this.props.rest.photos}
-                        </div> */}
             </div>
           </div>
           <div>
@@ -40,7 +36,6 @@ class RestaurantProfile extends React.Component {
               addToCart={this.props.addToCart}
             />
           </div>
-        </div>
       </>
     ) : (
       <h2> Loading </h2>

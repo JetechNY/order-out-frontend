@@ -4,25 +4,11 @@ import { connect } from "react-redux";
 import { Link, Route, Switch, Redirect } from "react-router-dom";
 import { PayPalButton } from "react-paypal-button-v2";
 import { Button, Form } from "semantic-ui-react";
-
 import Fade from "react-reveal/Fade";
+import CheckoutForm from "../CheckoutForm";
+import ShipBillForm from "./CheckoutPage";
 
 class Cart extends React.Component {
-  state = {
-    count: 1,
-  };
-
-  handleAdd = () => {
-    this.setState({ count: this.state.count + 1 });
-  };
-
-  handleMinus = () => {
-    return this.state.count === 0
-      ? null
-      : this.setState({ count: this.state.count - 1 });
-  };
-
-  successPayment = () => {};
 
   checkout = (e) => {
     e.preventDefault();
@@ -30,7 +16,7 @@ class Cart extends React.Component {
     this.props.handleCheckout(e);
   };
 
-  renderCart = () => {
+  renderCartItems = () => {
     const { menuItems } = this.props;
 
     return menuItems.map((item) => (
@@ -53,7 +39,10 @@ class Cart extends React.Component {
                 <div className="price">
                   {formatCurrency(item.price)}
                   {/* x {item.count}{" "} */}
-                  <Button onClick={() => this.props.removeFromCart(item)}>
+                  <Button
+                    style={{ backgroundColor: "#f0c040" }}
+                    onClick={() => this.props.removeFromCart(item)}
+                  >
                     Remove Item
                   </Button>
                 </div>
@@ -81,7 +70,7 @@ class Cart extends React.Component {
           {menuItems.length !== 0 && (
             <div>
               <div className="cart">
-                <ul className="cart-items">{this.renderCart()}</ul>
+                <ul className="cart-items">{this.renderCartItems()}</ul>
               </div>
               <div className="cart-total">
                 <div className="total">
@@ -94,6 +83,49 @@ class Cart extends React.Component {
                       //this is the total cost at the bottom of cart.
                     )}
                   </div>
+
+                  <div>
+                    {/* <Form onSubmit={this.checkout}>
+                      <Button
+                        style={{ backgroundColor: "#f0c040" }}
+                        type="submit"
+                      >
+                        Proceed to Checkout Page
+                      </Button>
+                    </Form> */}
+
+                    <Form>
+                      <Button style={{ backgroundColor: "#f0c040" }} type="submit" href="/checkout-page">
+                        To CheckOut
+                      </Button>
+                    </Form>
+                  </div>
+                </div>
+              </div>
+              {/* <CheckoutForm/> */}
+              {/* <div className="paypal-button"><PayPalButton onSuccess={this.successPayment}/></div> */}
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  }
+}
+
+export default Cart;
+
+// state = {
+//   count: 1,
+// };
+// handleAdd = () => {
+//   this.setState({ count: this.state.count + 1 });
+// };
+// handleMinus = () => {
+//   return this.state.count === 0
+//     ? null
+//     : this.setState({ count: this.state.count - 1 });
+// };
+
                   {/* <div className="note">
                     <div>
                       <form onSubmit={this.submitHandler}>
@@ -112,20 +144,3 @@ class Cart extends React.Component {
                       </form>
                     </div>
                   </div> */}
-                  <div>
-                    <Form onSubmit={this.checkout}>
-                      <Button type="submit">Checkout</Button>
-                    </Form>
-                  </div>
-                </div>
-              </div>
-              {/* <div className="paypal-button"><PayPalButton onSuccess={this.successPayment}/></div> */}
-            </div>
-          )}
-        </div>
-      </div>
-    );
-  }
-}
-
-export default Cart;

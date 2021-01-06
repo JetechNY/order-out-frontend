@@ -5,6 +5,7 @@ import { getRestaurantFromApi } from "../Redux/actions";
 import { Route, Switch } from "react-router-dom";
 import RestaurantProfile from "../Components/RestaurantProfile";
 import Fade from "react-reveal/Fade";
+import { Search, Grid, Header, Segment } from 'semantic-ui-react'
 
 const RestaurantContainer = ({
   getRestaurantFromApi,
@@ -55,7 +56,7 @@ const RestaurantContainer = ({
           render={() => {
             return (
               <div>
-                <h3>Here are the restaurants near you!</h3>
+                <h3>Please pick a restaurant to see it's menu!</h3>
                 <div className="search">
                   <form className="search-form">
                     <input
@@ -65,6 +66,8 @@ const RestaurantContainer = ({
                       onChange={handleChange}
                       placeholder="Search Restaurants"
                     />
+                          <button><i class="fa fa-search"></i></button>
+
                   </form>
                 </div>
                 <div>

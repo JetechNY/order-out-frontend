@@ -53,7 +53,7 @@ class MenuCard extends React.Component {
                   {" "}
                   Price: {formatCurrency(this.props.menuObj.price)}{" "}
                 </div>
-                <Button onClick={() => this.handleAdd(this.props.menuObj)}>
+                <Button style={{backgroundColor: "#f0c040", }} onClick={() => this.handleAdd(this.props.menuObj)}>
                   Add to cart
                 </Button>
               </div>
@@ -87,7 +87,7 @@ class MenuCard extends React.Component {
                     {" "}
                     Price: {formatCurrency(this.props.menuObj.price)}{" "}
                   </div>
-                  <Button
+                  <Button style={{backgroundColor: "#f0c040", }}
                     onClick={() => {
                       this.handleAdd(this.props.menuObj);
                       this.closeModal();

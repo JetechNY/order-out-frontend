@@ -50,7 +50,7 @@ handleStarCard = () => {
                       {this.props.restObj.name}
                     </strong>
                   </div>
-                  <div className="price">Price: {this.props.restObj.price}</div>
+                  <div className="price">Price range: {this.props.restObj.price}</div>
                 </div>
                 <div className="extra-content">
                   <div className="cuisine">
