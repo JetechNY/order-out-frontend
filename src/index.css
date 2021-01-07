@@ -9,6 +9,7 @@ body,
 #root {
   height: 100vh;
   margin: 0;
+
 }
 
 body,
@@ -38,13 +39,14 @@ header {
   align-items: center;
   padding: 0rem;
   position: fixed;
-  top: 0;
+  top: 0px;
   z-index: 2;
 }
 
 main {
   grid-area: 2 / 1 / 3 / 2;
   align-items: center;
+
 }
 
 footer {
@@ -64,6 +66,8 @@ footer {
 
 cart {
   grid-area: 2 / 2 / 3 / 3;
+
+
 }
 
 header a {
@@ -72,13 +76,14 @@ header a {
 }
 
 .welcome {
-  flex: center;
   text-align: center;
+
 }
 
 .welcome img {
-  max-height: 500px;
+  max-height: 800px;
   width: auto;
+
 }
 
 .navbar {
@@ -104,12 +109,8 @@ header a {
 .content {
   display: flex;
   flex-wrap: wrap;
-}
-.main {
-  flex: 75%;
-}
-.sidebar {
-  flex: 25%;
+  justify-content: space-around;
+  min-height: 100vh
 }
 
 .menu-items {
@@ -208,8 +209,13 @@ img:hover {
 } */
 
 .sidebar {
-  overflow: hidden;
-  position: sticky;
+  /* overflow: hidden; */
+  /* overflow-y: auto; */
+  /* overflow-x: hidden; */
+  overflow-y: scroll;
+  max-height: 80%;
+
+  position: fixed;
   top: var(--offset);
 }
 

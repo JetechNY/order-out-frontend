@@ -43,7 +43,6 @@ export default class History extends Component {
             )}
           </div>
           {this.renderItems(carts.menu_items)}
-          <hr></hr>
         </div>
       );
     });
