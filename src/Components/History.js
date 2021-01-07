@@ -33,7 +33,7 @@ export default class History extends Component {
     // console.log("cartsitems", carts.menu_items)
     return this.props.pastOrders.map((carts) => {
       return (
-        <div>
+        <div className="hback">
           <h3> Cart #: {carts.id} </h3>
           <div>
             Total:{" "}
@@ -54,7 +54,7 @@ export default class History extends Component {
     return (
       <div className="history">
         <h1>Your Order History</h1>
-        <div className="menuindex">{this.renderOldCart()}</div>
+        <div className="hmenuindex">{this.renderOldCart()}</div>
       </div>
     );
   }

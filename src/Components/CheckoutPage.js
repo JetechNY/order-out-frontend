@@ -1,14 +1,13 @@
 import React from "react";
 import { Button, Form } from "semantic-ui-react";
-import toast, {Toaster} from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 
-const confirmNotify = () => toast("Thank you!")
+const confirmNotify = () => toast("Thank you!");
 
 class CheckoutPage extends React.Component {
-
   checkout = (e) => {
     e.preventDefault();
-    confirmNotify()
+    confirmNotify();
     this.props.handleCheckout(e);
   };
 
@@ -145,10 +144,7 @@ class CheckoutPage extends React.Component {
               <label>Expiration</label>
               <div class="two fields">
                 <div class="field">
-                  <select
-                    class="ui fluid search dropdown"
-                    name="card[expire-month]"
-                  >
+                  <select>
                     <option value="">Month</option>
                     <option value="1">January</option>
                     <option value="2">February</option>
@@ -178,7 +174,7 @@ class CheckoutPage extends React.Component {
           <Button style={{ backgroundColor: "#f0c040" }} type="submit">
             Submit Order{" "}
           </Button>
-          <Toaster/>
+          <Toaster />
         </Form>
       </div>
     );

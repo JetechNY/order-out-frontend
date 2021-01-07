@@ -28,7 +28,6 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-
     fetch("http://localhost:3000/api/v1/users/1")
       .then((response) => response.json())
       .then((data) => {
@@ -138,7 +137,7 @@ class App extends React.Component {
     return (
       <Elements stripe={stripePromise}>
         {this.state.activeCart.length === 0 ? (
-          <h2>loading</h2>
+          <h2>Loading...</h2>
         ) : (
           <div className="grid-container">
             <header>
@@ -174,7 +173,8 @@ class App extends React.Component {
                       return (
                         <div className="index">
                           <CheckoutPage
-                            menuItems={this.state.activeCart.menu_items}                     handleCheckout={this.handleCheckout}
+                            menuItems={this.state.activeCart.menu_items}
+                            handleCheckout={this.handleCheckout}
                           />
                         </div>
                       );
@@ -204,13 +204,16 @@ class App extends React.Component {
                     }}
                   />
                 </div>
+              </div>
+            </main>
+            <cart>
                 <div className="sidebar">
                   <Cart
                     menuItems={this.state.activeCart.menu_items}
                     removeFromCart={this.removeFromCart}
                     handleCheckout={this.handleCheckout}
                   />
-                  <CheckoutForm />
+                  {/* <CheckoutForm /> */}
                   {/* <button role="link">Stripe Checkout</button> */}
                   {/* <StripeCheckout
                     stripeKey="pk_test_n25VuFBwG0P8arNmqBOWXehY00B8Jc6bdi"
@@ -227,9 +230,11 @@ class App extends React.Component {
                     handleCheckout={this.handleCheckout}
                   />
                 </div> */}
-              </div>
-            </main>
-            <footer> Order Out By SunJet Liu </footer>
+
+            </cart>
+            <footer>
+              <h5>Order Out By SunJet Liu</h5>
+            </footer>
           </div>
         )}
       </Elements>

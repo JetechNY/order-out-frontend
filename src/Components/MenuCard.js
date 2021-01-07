@@ -5,6 +5,18 @@ import Fade from "react-reveal/Fade";
 import Zoom from "react-reveal/Zoom";
 import { Button, Card, Icon } from "semantic-ui-react";
 
+const customStyles = {
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)',
+    
+  }
+};
+
 class MenuCard extends React.Component {
   constructor(props) {
     super(props);
@@ -13,6 +25,7 @@ class MenuCard extends React.Component {
     };
   }
 
+
   handleAdd = (itemId) => {
     this.props.addToCart(itemId);
     console.log("add to cart pressed and sent", this.props.menuObj);
@@ -20,7 +33,6 @@ class MenuCard extends React.Component {
 
   openModal = (menuObj) => {
     this.setState({ menuObj });
-    console.log(this.state);
   };
 
   closeModal = () => {
@@ -53,7 +65,10 @@ class MenuCard extends React.Component {
                   {" "}
                   Price: {formatCurrency(this.props.menuObj.price)}{" "}
                 </div>
-                <Button style={{backgroundColor: "#f0c040", }} onClick={() => this.handleAdd(this.props.menuObj)}>
+                <Button
+                  style={{ backgroundColor: "#f0c040" }}
+                  onClick={() => this.handleAdd(this.props.menuObj)}
+                >
                   Add to cart
                 </Button>
               </div>
@@ -61,7 +76,11 @@ class MenuCard extends React.Component {
           </div>
         </Fade>
         {menuObj && (
-          <Modal isOpen={true} onRequestClose={this.closeModal}>
+          <Modal
+            isOpen={true}
+            onRequestClose={this.closeModal}
+            style={customStyles}
+          >
             <Zoom>
               <button onClick={this.closeModal} className="close-modal">
                 X
@@ -87,7 +106,8 @@ class MenuCard extends React.Component {
                     {" "}
                     Price: {formatCurrency(this.props.menuObj.price)}{" "}
                   </div>
-                  <Button style={{backgroundColor: "#f0c040", }}
+                  <Button
+                    style={{ backgroundColor: "#f0c040" }}
                     onClick={() => {
                       this.handleAdd(this.props.menuObj);
                       this.closeModal();

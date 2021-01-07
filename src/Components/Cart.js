@@ -40,6 +40,7 @@ class Cart extends React.Component {
                   {formatCurrency(item.price)}
                   {/* x {item.count}{" "} */}
                   <Button
+                    floated="right"
                     style={{ backgroundColor: "#f0c040" }}
                     onClick={() => this.props.removeFromCart(item)}
                   >
@@ -74,7 +75,7 @@ class Cart extends React.Component {
               </div>
               <div className="cart-total">
                 <div className="total">
-                  <div>
+                  <h4>
                     Total:{" "}
                     {formatCurrency(
                       menuItems
@@ -82,7 +83,7 @@ class Cart extends React.Component {
                         .toFixed(2)
                       //this is the total cost at the bottom of cart.
                     )}
-                  </div>
+                  </h4>
 
                   <div>
                     {/* <Form onSubmit={this.checkout}>
@@ -96,7 +97,7 @@ class Cart extends React.Component {
 
                     <Form>
                       <Button style={{ backgroundColor: "#f0c040" }} type="submit" href="/checkout-page">
-                        To CheckOut
+                      Proceed to Checkout Page
                       </Button>
                     </Form>
                   </div>
