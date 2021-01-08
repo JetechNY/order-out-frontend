@@ -18,7 +18,7 @@ select,
 button,
 textarea {
   font-family: Montserrat, Helvetica, Arial, sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
 }
 
 .grid-container {
@@ -87,7 +87,7 @@ header a {
 }
 
 .navbar {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -212,11 +212,11 @@ img:hover {
   /* overflow: hidden; */
   /* overflow-y: auto; */
   /* overflow-x: hidden; */
-  overflow-y: scroll;
+  overflow-y: auto;
   max-height: 80%;
-
   position: fixed;
   top: var(--offset);
+  padding: 5px;
 }
 
 .menuindex {
@@ -244,6 +244,8 @@ img:hover {
   max-width: 20rem;
   padding: 0rem;
   margin: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .hback {

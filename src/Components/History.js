@@ -36,7 +36,7 @@ export default class History extends Component {
         <div className="hback">
           <h3> Cart #: {carts.id} </h3>
           <div>
-            Total:{" "}
+            Order Total:{" "}
             {formatCurrency(
               carts.menu_items.reduce((a, b) => a + parseFloat(b.price), 0)
               //this is the total cost at the bottom of cart.
