@@ -13,8 +13,8 @@ import { loadStripe } from "@stripe/stripe-js";
 import CheckoutForm from "./CheckoutForm";
 
 // import StripeCheckout from "react-stripe-checkout";
-
 // const stripePromise = loadStripe("pk_test_JJ1eMdKN0Hp4UFJ6kWXWO4ix00jtXzq5XG");
+
 const stripePromise = loadStripe(
   "pk_test_51I0e33FZLmnVEIlaq5MQw8C76OVH2RZ9o21XWaSvWkxft7Ek8TYtsuBA8WWNdacrQ9cV0V71gbd5QfpYBkplxj7s00sAET8dTT"
 );
