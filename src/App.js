@@ -9,15 +9,6 @@ import RestaurantContainer from "./Containers/RestaurantContainer";
 import { withRouter, Route } from "react-router-dom";
 import produce from "immer";
 import { Elements } from "@stripe/react-stripe-js";
-import { loadStripe } from "@stripe/stripe-js";
-import CheckoutForm from "./CheckoutForm";
-
-// import StripeCheckout from "react-stripe-checkout";
-// const stripePromise = loadStripe("pk_test_JJ1eMdKN0Hp4UFJ6kWXWO4ix00jtXzq5XG");
-
-const stripePromise = loadStripe(
-  "pk_test_51I0e33FZLmnVEIlaq5MQw8C76OVH2RZ9o21XWaSvWkxft7Ek8TYtsuBA8WWNdacrQ9cV0V71gbd5QfpYBkplxj7s00sAET8dTT"
-);
 
 class App extends React.Component {
   state = {
@@ -207,30 +198,13 @@ class App extends React.Component {
               </div>
             </main>
             <cart>
-                <div className="sidebar">
-                  <Cart
-                    menuItems={this.state.activeCart.menu_items}
-                    removeFromCart={this.removeFromCart}
-                    handleCheckout={this.handleCheckout}
-                  />
-                  {/* <CheckoutForm /> */}
-                  {/* <button role="link">Stripe Checkout</button> */}
-                  {/* <StripeCheckout
-                    stripeKey="pk_test_n25VuFBwG0P8arNmqBOWXehY00B8Jc6bdi"
-                    token={handleToken}
-                    billingAddress
-                    shippingAddress
-                    amount={calculateSubTotal() * 100}
-                /> */}
-                </div>
-                {/* <div className="sidebar">
-                  <CartContainer
-                    menuItems={this.state.activeCart.menu_items}
-                    removeFromCart={this.removeFromCart}
-                    handleCheckout={this.handleCheckout}
-                  />
-                </div> */}
-
+              <div className="sidebar">
+                <Cart
+                  menuItems={this.state.activeCart.menu_items}
+                  removeFromCart={this.removeFromCart}
+                  handleCheckout={this.handleCheckout}
+                />
+              </div>
             </cart>
             <footer>
               <h5>Order Out By SunJet Liu</h5>

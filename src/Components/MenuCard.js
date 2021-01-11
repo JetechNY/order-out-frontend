@@ -3,18 +3,18 @@ import formatCurrency from "./util";
 import Modal from "react-modal";
 import Fade from "react-reveal/Fade";
 import Zoom from "react-reveal/Zoom";
-import { Button, Card, Icon } from "semantic-ui-react";
+import { Button } from "semantic-ui-react";
 
 const customStyles = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)',
-    width : '900px',
-  }
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    width: "900px",
+  },
 };
 
 class MenuCard extends React.Component {
@@ -24,7 +24,6 @@ class MenuCard extends React.Component {
       menuObj: null,
     };
   }
-
 
   handleAdd = (itemId) => {
     this.props.addToCart(itemId);

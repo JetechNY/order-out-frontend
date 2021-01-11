@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Route, Switch, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Image } from "semantic-ui-react";
 
 class Home extends React.Component {
