@@ -65,7 +65,6 @@ class App extends React.Component {
     let cartItem = this.state.activeCart.cart_items.find(
       (item) => item.menu_item_id === menuitem.id
     );
-    //use filter instead of find?
     let cartIndex = this.state.activeCart.cart_items.indexOf(cartItem);
     let menuIndex = this.state.activeCart.menu_items.indexOf(menuitem);
     fetch(`http://localhost:3000/api/v1/cart_items/${cartItem.id}`, {
