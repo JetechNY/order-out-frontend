@@ -125,7 +125,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Elements stripe={stripePromise}>
+      <Elements>
         {this.state.activeCart.length === 0 ? (
           <h2>Loading...</h2>
         ) : (
