@@ -8,7 +8,7 @@ import CheckoutPage from "./Components/CheckoutPage";
 import RestaurantContainer from "./Containers/RestaurantContainer";
 import { withRouter, Route } from "react-router-dom";
 import produce from "immer";
-import { Elements } from "@stripe/react-stripe-js";
+// import { Elements } from "@stripe/react-stripe-js";
 
 class App extends React.Component {
   state = {
@@ -124,8 +124,10 @@ class App extends React.Component {
   };
 
   render() {
+    console.log("props", this.state.activeCart)
+    // debugger
     return (
-      <Elements>
+      <div>
         {this.state.activeCart.length === 0 ? (
           <h2>Loading...</h2>
         ) : (
@@ -210,7 +212,7 @@ class App extends React.Component {
             </footer>
           </div>
         )}
-      </Elements>
+      </div>
     );
   }
 }
