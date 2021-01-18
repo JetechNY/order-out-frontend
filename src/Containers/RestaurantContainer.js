@@ -5,7 +5,7 @@ import { getRestaurantFromApi } from "../Redux/actions";
 import { Route, Switch } from "react-router-dom";
 import RestaurantProfile from "../Components/RestaurantProfile";
 import Fade from "react-reveal/Fade";
-import { Search, Grid, Header, Segment } from "semantic-ui-react";
+// import { Search, Grid, Header, Segment } from "semantic-ui-react";
 
 const RestaurantContainer = ({
   getRestaurantFromApi,
@@ -44,7 +44,7 @@ const RestaurantContainer = ({
             return (
               <div>
                 <RestaurantProfile
-                  rest={restArray.find((rest) => rest.id == match.params.id)}
+                  rest={restArray.find((rest) => rest.id === match.params.id)}
                   addToCart={addToCart}
                 />
               </div>
