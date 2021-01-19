@@ -208,7 +208,7 @@ class App extends React.Component {
               </div>
             </cart>
             <footer>
-              <h5>Order Out By SunJet Liu</h5>
+              <h5>Trypto Fan By SunJet Liu</h5>
             </footer>
           </div>
         )}
