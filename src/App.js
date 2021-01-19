@@ -124,12 +124,12 @@ class App extends React.Component {
   };
 
   render() {
-    console.log("props", this.state.activeCart)
+    console.log("props", this.state.activeCart);
     // debugger
     return (
       <div>
         {this.state.activeCart.length === 0 ? (
-          <h2>Loading...</h2>
+          <h2>Loading.....</h2>
         ) : (
           <div className="grid-container">
             <header>
