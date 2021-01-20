@@ -29,11 +29,13 @@ const RestaurantContainer = ({
 
   const restaurantsFromSearch = () => {
     return restArray
-      .filter((restaurant) =>
-        restaurant.name.toLowerCase().includes(value.search.toLowerCase())
-      )
-      .map((restObj) => <RestaurantCard key={restObj.id} restObj={restObj} />);
+    .filter((restaurant) =>
+    restaurant.name.toLowerCase().includes(value.search.toLowerCase())
+    )
+    .map((restObj) => <RestaurantCard key={restObj.id} restObj={restObj} />);
   };
+
+  console.log("restarray", restArray)
 
   return (
     <Fade right cascade>
@@ -41,10 +43,11 @@ const RestaurantContainer = ({
         <Route
           path="/restaurants/:id"
           render={({ match }) => {
+            // debugger
             return (
               <div>
                 <RestaurantProfile
-                  rest={restArray.find((rest) => rest.id === match.params.id)}
+                  rest={restArray.find((rest) => rest.id === parseInt(match.params.id))}
                   addToCart={addToCart}
                   />
               </div>

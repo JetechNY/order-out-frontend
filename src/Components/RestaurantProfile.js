@@ -4,7 +4,7 @@ import StarRating from "./StarRating";
 
 class RestaurantProfile extends React.Component {
   render() {
-    console.log("rest props", this.props)
+    console.log("rest props", this.props.rest)
     return this.props.rest ? (
       <>
         <div className="card" key={this.props.rest.id}>
