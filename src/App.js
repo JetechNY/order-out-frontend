@@ -124,7 +124,7 @@ class App extends React.Component {
   };
 
   render() {
-    console.log("props", this.state.activeCart);
+    console.log("activecart props", this.state.activeCart);
     // debugger
     return (
       <div>

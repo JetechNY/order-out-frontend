@@ -1,5 +1,5 @@
 export function getRestaurantFromApi() {
-  // console.log("Inside of Restaurant action creater")
+  console.log("Inside of Restaurant action creater");
   return function (dispatch) {
     fetch("http://localhost:3000/api/v1/restaurants")
       .then((resp) => resp.json())
@@ -8,7 +8,7 @@ export function getRestaurantFromApi() {
 }
 
 export function getMenuFromApi() {
-  // console.log("Inside of Menu action creater")
+  console.log("Inside of Menu action creater")
   return function (dispatch) {
     fetch("http://localhost:3000/api/v1/menu_items")
       .then((resp) => resp.json())
@@ -17,7 +17,7 @@ export function getMenuFromApi() {
 }
 
 export function getCartFromApi() {
-  // console.log("Inside of Cart action creater")
+  console.log("Inside of Cart action creater")
   return function (dispatch) {
     fetch("http://localhost:3000/api/v1/carts")
       .then((resp) => resp.json())
@@ -26,7 +26,7 @@ export function getCartFromApi() {
 }
 
 export const setUser = (userCreds) => {
-  // console.log("Inside of action creater")
+  console.log("Inside of action creater")
   return function (dispatch) {
     fetch("http://localhost:3000/api/v1/users")
       .then((resp) => resp.json())
@@ -44,7 +44,7 @@ export const setUser = (userCreds) => {
 };
 
 export const createUser = (userCreds) => {
-  // console.log("Inside of action creater")
+  console.log("Inside of action creater")
   return function (dispatch) {
     fetch("http://localhost:3000/api/v1/users", {
       method: "POST",
@@ -65,7 +65,7 @@ export const createUser = (userCreds) => {
 };
 
 export const updateUser = (userId) => {
-  // console.log("Inside of action creater")
+  console.log("Inside of action creater")
   return function (dispatch) {
     fetch(`http://localhost:3000/api/v1/users/${userId}`)
       .then((resp) => resp.json())

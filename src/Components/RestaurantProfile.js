@@ -4,6 +4,7 @@ import StarRating from "./StarRating";
 
 class RestaurantProfile extends React.Component {
   render() {
+    console.log("rest props", this.props)
     return this.props.rest ? (
       <>
         <div className="card" key={this.props.rest.id}>
@@ -36,7 +37,8 @@ class RestaurantProfile extends React.Component {
         </div>
       </>
     ) : (
-      <h2> Loading </h2>
+      <h2> Loading Menus... </h2>
+
     );
   }
 }

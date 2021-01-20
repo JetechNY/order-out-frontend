@@ -46,7 +46,7 @@ const RestaurantContainer = ({
                 <RestaurantProfile
                   rest={restArray.find((rest) => rest.id === match.params.id)}
                   addToCart={addToCart}
-                />
+                  />
               </div>
             );
           }}
