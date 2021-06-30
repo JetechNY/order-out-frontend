@@ -10,7 +10,7 @@ class Home extends React.Component {
   render() {
     return (
       <div className="welcome">
-        <h1>Welcome to Trypto Fan!</h1>
+        <h1>Welcome to Trypto Fan</h1>
         <Image
           as={Link}
           to="/restaurants"
