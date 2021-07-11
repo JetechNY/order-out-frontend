@@ -37,7 +37,7 @@ class RestaurantProfile extends React.Component {
         </div>
       </div>
     ) : (
-      <h2> Loading Menus... </h2>
+      <h2> Loading Menus...</h2>
 
     );
   }
