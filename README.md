@@ -21,7 +21,7 @@ MenuItems: description(str), name(str), price(float), image(str), restaurantid(f
 
 Restaurant: name(str), address(str), hours(str), image(url), description(str), pricerange(int), favorite(bool), phone(int), cuisines(str),  restaurantid(int), menuitemsId(foreignkey), zipcode(int),neighborhood(str)
 
-Favorite: user_id(foreignkey), restaurant_id(foreignkey)
+<!-- Favorite: user_id(foreignkey), restaurant_id(foreignkey) -->
 
 User Stories:
 
