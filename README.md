@@ -9,7 +9,7 @@ Redux/Thunk
 Domain model with attributes:
 
 User -< Cart -<CartItems >- MenuItems>- Restaurant
-               user-< favorite >-restaurant
+        user-< favorite >-restaurant
 
 User: name(str), username (str), password(str), phone(int), email(str), address(str), userid(int),
 
