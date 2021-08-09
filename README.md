@@ -30,7 +30,6 @@ See all available restaurants,
 See menu items for each restaurant,
 Checkout a cart
 
-
 Stretch
 Full user Auth
 Fake Checkout with Stripe API
